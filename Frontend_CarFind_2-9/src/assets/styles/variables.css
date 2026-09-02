@@ -1,0 +1,33 @@
+/* Configuración por defecto: Tema Claro (Lila) */
+:root {
+  --bg-color: #f3f0ff;      
+  --card-bg: #ffffff;       
+  --primary-color: #9575cd;  
+  --text-color: #2d2d2d;     
+  --accent-color: #b39ddb;   
+  --border-color: #ffffff !important;
+  --button-bg-color: #9575cd;
+  --login-bg-color: #b78effb7;
+  --login-text-color: #180b2c;
+  --login-border-color:#7630f0fb ;
+}
+
+/* Configuración: Tema Oscuro (Negro/Violeta) */
+[data-theme='dark'] {
+  --bg-color: #272525;      
+  --card-bg: #35313f;       
+  --primary-color: #7c4dff;  
+  --text-color: #ede7f6;     
+  --accent-color: #311b92;   
+  --border-color: #ff0e0e;
+  --button-bg-color:  #a384dd;
+  --login-bg-color: #a384dd;
+  --login-text-color: #302c36;
+  --login-border-color:#7630f0fb ;
+}
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
