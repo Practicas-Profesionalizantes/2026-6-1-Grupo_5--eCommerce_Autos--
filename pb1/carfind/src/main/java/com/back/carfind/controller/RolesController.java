@@ -23,10 +23,10 @@ return service.crearRol(rol);
 }
 @PutMapping("/{id}")
 public Roles actualizar(@PathVariable Long id_rol, @RequestBody Roles rol) {
-return service.actualizarRoles(id_rol, rol);
+return service.actualizarRol(id_rol, rol);
 }
 @DeleteMapping("/{id}")
 public void eliminar(@PathVariable Long id_rol) {
-service.eliminarRoles(id_rol);
+service.eliminarRol(id_rol);
 }
 }
