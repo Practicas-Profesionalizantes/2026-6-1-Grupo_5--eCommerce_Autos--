@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.back.carfind.model.PagosPromocion;
-import com.back.carfind.repository.PagosPromocionRepository;
+import com.back.carfind.repository.PagosPromocionesRepository;
 
 @Service
 public class PagosPromocionService {
 
     @Autowired
-    private PagosPromocionRepository repository;
+    private PagosPromocionesRepository repository;
 
     public PagosPromocion crearPagoPromocion(
             PagosPromocion pagoPromocion) {
