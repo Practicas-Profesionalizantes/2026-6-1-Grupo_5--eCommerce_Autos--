@@ -1,32 +1,44 @@
 package com.back.carfind.controller;
-import java.util.List;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.web.bind.annotation.*;
+
 import com.back.carfind.model.Roles;
 import com.back.carfind.service.RolesService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 @RestController
-@RequestMapping("/roles")
+@RequestMapping("/api/roles")
+@CrossOrigin(origins = "*")
 public class RolesController {
-@Autowired
-private RolesService service;
-@GetMapping
-public List<Roles> listar() {
-return service.listarRoles();
-}
-@GetMapping("/{id}")
-public Roles obtener(@PathVariable Long id_rol) {
-return service.obtenerRol(id_rol);
-}
-@PostMapping
-public Roles crear(@RequestBody Roles rol) {
-return service.crearRol(rol);
-}
-@PutMapping("/{id}")
-public Roles actualizar(@PathVariable Long id_rol, @RequestBody Roles rol) {
-return service.actualizarRol(id_rol, rol);
-}
-@DeleteMapping("/{id}")
-public void eliminar(@PathVariable Long id_rol) {
-service.eliminarRol(id_rol);
-}
+
+    private final RolesService service;
+
+    public RolesController(RolesService service) {
+        this.service = service;
+    }
+
+    @PostMapping
+    public Roles crearRol(@RequestBody Roles rol) {
+        return service.crearRol(rol);
+    }
+
+    @GetMapping("/{id}")
+    public Roles obtenerRol(@PathVariable Long id) {
+        return service.obtenerRol(id);
+    }
+
+    @GetMapping
+    public List<Roles> listarRoles() {
+        return service.listarRoles();
+    }
+
+    @PutMapping("/{id}")
+    public Roles actualizarRol(@PathVariable Long id, @RequestBody Roles rol) {
+        return service.actualizarRol(id, rol);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminarRol(@PathVariable Long id) {
+        service.eliminarRol(id);
+    }
 }

@@ -1,0 +1,44 @@
+package com.back.carfind.controller;
+
+import com.back.carfind.model.BusquedasGuardadas;
+import com.back.carfind.service.BusquedasGuardadasService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/busquedas-guardadas")
+@CrossOrigin(origins = "*")
+public class BusquedasGuardadasController {
+
+    private final BusquedasGuardadasService service;
+
+    public BusquedasGuardadasController(BusquedasGuardadasService service) {
+        this.service = service;
+    }
+
+    @PostMapping
+    public BusquedasGuardadas crearBusquedaGuardada(@RequestBody BusquedasGuardadas busquedaGuardada) {
+        return service.crearBusquedasGuardadas(busquedaGuardada);
+    }
+
+    @GetMapping("/{id}")
+    public BusquedasGuardadas obtenerBusquedaGuardada(@PathVariable Long id) {
+        return service.obtenerBusquedasGuardadas(id);
+    }
+
+    @GetMapping
+    public List<BusquedasGuardadas> listarBusquedasGuardadas() {
+        return service.listarBusquedasGuardadas();
+    }
+
+    @PutMapping("/{id}")
+    public BusquedasGuardadas actualizarBusquedaGuardada(@PathVariable Long id, @RequestBody BusquedasGuardadas busquedaGuardada) {
+        return service.actualizarBusquedasGuardadas(id, busquedaGuardada);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminarBusquedaGuardada(@PathVariable Long id) {
+        service.eliminarbusquedasGuardadas(id);
+    }
+}
