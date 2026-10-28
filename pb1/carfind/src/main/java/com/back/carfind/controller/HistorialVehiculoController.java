@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.HistorialVehiculo;
-import com.back.carfind.service.HistorialVehiculoService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.HistorialVehiculo;
+import com.back.carfind.service.HistorialVehiculoService;
 
 @RestController
 @RequestMapping("/api/historial-vehiculos")
@@ -29,7 +30,7 @@ public class HistorialVehiculoController {
 
     @GetMapping
     public List<HistorialVehiculo> listarHistorialVehiculos() {
-        return service.listarHistorialesVehiculo();
+        return service.listarHistorialVehiculos();
     }
 
     @PutMapping("/{id}")

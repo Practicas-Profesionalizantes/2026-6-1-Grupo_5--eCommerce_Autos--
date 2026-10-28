@@ -1,59 +1,84 @@
 package com.back.carfind.model;
-import java.time.LocalDate;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class Ofertas{
+@Table(name = "ofertas")
+public class Ofertas {
 
-@Column
-private Long id_publicacion;
-@Column
-private Long id_comprador;
-@Column
-private Float monto_reporte;
-@Column
-private String estado;
-@Column 
-private LocalDate fecha_oferta;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-public Long getId_publicacion() {
-	return id_publicacion;
-}
-public void setId_publicacion(Long id_publicacion) {
-	this.id_publicacion = id_publicacion;
-}
-public Long getId_comprador() {
-	return id_comprador;
-}
-public void setId_comprador(Long id_comprador) {
-	this.id_comprador = id_comprador;
-}
-public Float getMonto_reporte() {
-	return monto_reporte;
-}
-public void setMonto_reporte(Float monto_reporte) {
-	this.monto_reporte = monto_reporte;
-}
-public String getEstado() {
-	return estado;
-}
-public void setEstado(String estado) {
-	this.estado = estado;
-}
-public LocalDate getFecha_oferta() {
-	return fecha_oferta;
-}
-public void setFecha_oferta(LocalDate fecha_oferta) {
-	this.fecha_oferta = fecha_oferta;
-}
+    @Column(name = "publicacion_id", nullable = false)
+    private Long publicacionId;
 
+    @Column(name = "comprador_id", nullable = false)
+    private Long compradorId;
 
+    @Column(name = "monto", nullable = false)
+    private BigDecimal monto;
 
+    @Column(name = "estado")
+    private String estado;
 
+    @Column(name = "fecha", nullable = false)
+    private LocalDateTime fecha;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public Long getPublicacionId() {
+        return publicacionId;
+    }
 
+    public void setPublicacionId(Long publicacionId) {
+        this.publicacionId = publicacionId;
+    }
+
+    public Long getCompradorId() {
+        return compradorId;
+    }
+
+    public void setCompradorId(Long compradorId) {
+        this.compradorId = compradorId;
+    }
+
+    public BigDecimal getMonto() {
+        return monto;
+    }
+
+    public void setMonto(BigDecimal monto) {
+        this.monto = monto;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
 }

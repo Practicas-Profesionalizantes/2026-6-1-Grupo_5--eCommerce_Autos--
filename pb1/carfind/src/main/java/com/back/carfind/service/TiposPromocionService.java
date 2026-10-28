@@ -14,46 +14,30 @@ public class TiposPromocionService {
     @Autowired
     private TiposPromocionRepository repository;
 
-    public TiposPromocion crearTipoPromocion(
-            TiposPromocion tipoPromocion) {
-
+    public TiposPromocion crearTipoPromocion(TiposPromocion tipoPromocion) {
         return repository.save(tipoPromocion);
     }
 
     public TiposPromocion obtenerTipoPromocion(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Tipo de promoción no encontrado"
-                ));
+                .orElseThrow(() -> new RuntimeException("Tipo de promocion no encontrado"));
     }
 
     public List<TiposPromocion> listarTiposPromocion() {
         return repository.findAll();
     }
 
-    public TiposPromocion actualizarTipoPromocion(
-            Long id,
-            TiposPromocion datos) {
-
-        TiposPromocion tipoPromocion =
-                obtenerTipoPromocion(id);
-
+    public TiposPromocion actualizarTipoPromocion(Long id, TiposPromocion datos) {
+        TiposPromocion tipoPromocion = obtenerTipoPromocion(id);
         tipoPromocion.setNombre(datos.getNombre());
-        tipoPromocion.setPrioridad(
-                datos.getPrioridad()
-        );
-        tipoPromocion.setDuracion_dias(
-                datos.getDuracion_dias()
-        );
+        tipoPromocion.setPrioridad(datos.getPrioridad());
+        tipoPromocion.setDuracionDias(datos.getDuracionDias());
         tipoPromocion.setPrecio(datos.getPrecio());
-
         return repository.save(tipoPromocion);
     }
 
     public void eliminarTipoPromocion(Long id) {
-        TiposPromocion tipoPromocion =
-                obtenerTipoPromocion(id);
-
+        TiposPromocion tipoPromocion = obtenerTipoPromocion(id);
         repository.delete(tipoPromocion);
     }
 }

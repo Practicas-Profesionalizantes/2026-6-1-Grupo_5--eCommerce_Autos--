@@ -20,38 +20,25 @@ public class MultimediaService {
 
     public Multimedia obtenerMultimedia(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Multimedia no encontrada"
-                ));
+                .orElseThrow(() -> new RuntimeException("Multimedia no encontrada"));
     }
 
     public List<Multimedia> listarMultimedia() {
         return repository.findAll();
     }
 
-    public Multimedia actualizarMultimedia(
-            Long id,
-            Multimedia datos) {
-
+    public Multimedia actualizarMultimedia(Long id, Multimedia datos) {
         Multimedia multimedia = obtenerMultimedia(id);
-
-        multimedia.setId_publicacion(
-                datos.getId_publicacion()
-        );
-
+        multimedia.setPublicacionId(datos.getPublicacionId());
         multimedia.setUrl(datos.getUrl());
         multimedia.setTipo(datos.getTipo());
         multimedia.setOrden(datos.getOrden());
-        multimedia.setFecha_creacion(
-                datos.getFecha_creacion()
-        );
-
+        multimedia.setFechaCreacion(datos.getFechaCreacion());
         return repository.save(multimedia);
     }
 
     public void eliminarMultimedia(Long id) {
         Multimedia multimedia = obtenerMultimedia(id);
-
         repository.delete(multimedia);
     }
 }

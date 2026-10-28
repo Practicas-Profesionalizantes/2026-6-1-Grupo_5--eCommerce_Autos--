@@ -14,61 +14,32 @@ public class NotificacionesService {
     @Autowired
     private NotificacionesRepository repository;
 
-    public Notificaciones crearNotificacion(
-            Notificaciones notificacion) {
-
+    public Notificaciones crearNotificacion(Notificaciones notificacion) {
         return repository.save(notificacion);
     }
 
     public Notificaciones obtenerNotificacion(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Notificación no encontrada"
-                ));
+                .orElseThrow(() -> new RuntimeException("Notificacion no encontrada"));
     }
 
     public List<Notificaciones> listarNotificaciones() {
         return repository.findAll();
     }
 
-    public Notificaciones actualizarNotificacion(
-            Long id,
-            Notificaciones datos) {
-
-        Notificaciones notificacion =
-                obtenerNotificacion(id);
-
-        notificacion.setUsuario_id(
-                datos.getUsuario_id()
-        );
-
-        notificacion.setTipo(
-                datos.getTipo()
-        );
-
-        notificacion.setMensaje(
-                datos.getMensaje()
-        );
-
-        notificacion.setLeido(
-                datos.getLeido()
-        );
-
-        notificacion.setId_entidad(
-                datos.getId_entidad()
-        );
-
-        notificacion.setFecha_notificacion(
-                datos.getFecha_notificacion()
-        );
-
+    public Notificaciones actualizarNotificacion(Long id, Notificaciones datos) {
+        Notificaciones notificacion = obtenerNotificacion(id);
+        notificacion.setUsuarioId(datos.getUsuarioId());
+        notificacion.setTipo(datos.getTipo());
+        notificacion.setMensaje(datos.getMensaje());
+        notificacion.setLeido(datos.getLeido());
+        notificacion.setEntidadId(datos.getEntidadId());
+        notificacion.setFecha(datos.getFecha());
         return repository.save(notificacion);
     }
 
     public void eliminarNotificacion(Long id) {
-        Notificaciones notificacion =
-                obtenerNotificacion(id);
-
+        Notificaciones notificacion = obtenerNotificacion(id);
         repository.delete(notificacion);
     }
 }

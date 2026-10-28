@@ -1,59 +1,72 @@
 package com.back.carfind.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import java.time.LocalDate;
-
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "preguntas")
 public class Preguntas {
-	
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_pregunta;
-@Column
-private Long id_publicacion;
-@Column
-private Long id_usaurio;
-@Column
-private String descripcion;
-@Column
-private LocalDate fecha_pregunta;
 
-public Long getId_pregunta() {
-	return id_pregunta;
-}
-public void setId_pregunta(Long id_pregunta) {
-	this.id_pregunta = id_pregunta;
-}
-public Long getId_publicacion() {
-	return id_publicacion;
-}
-public void setId_publicacion(Long id_publicacion) {
-	this.id_publicacion = id_publicacion;
-}
-public Long getId_usaurio() {
-	return id_usaurio;
-}
-public void setId_usaurio(Long id_usaurio) {
-	this.id_usaurio = id_usaurio;
-}
-public String getDescripcion() {
-	return descripcion;
-}
-public void setDescripcion(String descripcion) {
-	this.descripcion = descripcion;
-}
-public LocalDate getFecha_pregunta() {
-	return fecha_pregunta;
-}
-public void setFecha_pregunta(LocalDate fecha_pregunta) {
-	this.fecha_pregunta = fecha_pregunta;
-}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
+    @Column(name = "publicacion_id")
+    private Long publicacionId;
 
+    @Column(name = "usuario_id")
+    private Long usuarioId;
 
+    @Column(name = "pregunta", columnDefinition = "TEXT")
+    private String pregunta;
+
+    @Column(name = "fecha", nullable = false)
+    private LocalDateTime fecha;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getPublicacionId() {
+        return publicacionId;
+    }
+
+    public void setPublicacionId(Long publicacionId) {
+        this.publicacionId = publicacionId;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
 }

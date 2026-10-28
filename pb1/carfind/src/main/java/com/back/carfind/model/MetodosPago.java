@@ -1,45 +1,70 @@
 package com.back.carfind.model;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "metodos_pago")
 public class MetodosPago {
 
-@Column
-private Long id_usuario;
-@Column
-private String datos_tokenizados;
-@Column
-private Boolean activo_metodo;
-@Column
-private Long id_tipo_pago;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-public Long getId_usuario() {
-	return id_usuario;
-}
-public void setId_usuario(Long id_usuario) {
-	this.id_usuario = id_usuario;
-}
-public String getDatos_tokenizados() {
-	return datos_tokenizados;
-}
-public void setDatos_tokenizados(String datos_tokenizados) {
-	this.datos_tokenizados = datos_tokenizados;
-}
-public Boolean getActivo_metodo() {
-	return activo_metodo;
-}
-public void setActivo_metodo(Boolean activo_metodo) {
-	this.activo_metodo = activo_metodo;
-}
-public Long getId_tipo_pago() {
-	return id_tipo_pago;
-}
-public void setId_tipo_pago(Long id_tipo_pago) {
-	this.id_tipo_pago = id_tipo_pago;
-}
+    @Column(name = "usuario_id")
+    private Long usuarioId;
 
+    @Column(name = "datos_tokenizados", columnDefinition = "TEXT")
+    private String datosTokenizados;
 
+    @Column(name = "activo")
+    private Boolean activo;
 
+    @Column(name = "tipo_pago_id")
+    private Long tipoPagoId;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public String getDatosTokenizados() {
+        return datosTokenizados;
+    }
+
+    public void setDatosTokenizados(String datosTokenizados) {
+        this.datosTokenizados = datosTokenizados;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
+
+    public Long getTipoPagoId() {
+        return tipoPagoId;
+    }
+
+    public void setTipoPagoId(Long tipoPagoId) {
+        this.tipoPagoId = tipoPagoId;
+    }
 }

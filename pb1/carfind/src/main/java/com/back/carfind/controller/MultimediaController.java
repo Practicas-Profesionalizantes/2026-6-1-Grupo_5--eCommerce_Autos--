@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.Multimedia;
-import com.back.carfind.service.MultimediaService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.Multimedia;
+import com.back.carfind.service.MultimediaService;
 
 @RestController
 @RequestMapping("/api/multimedia")

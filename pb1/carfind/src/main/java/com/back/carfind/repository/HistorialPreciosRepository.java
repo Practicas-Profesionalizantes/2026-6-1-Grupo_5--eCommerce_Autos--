@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.back.carfind.model.HistorialPrecios;
 
 @Repository
-public interface HistorialPreciosRepository
-        extends JpaRepository<HistorialPrecios, Long> {
+public interface HistorialPreciosRepository extends JpaRepository<HistorialPrecios, Long> {
 }

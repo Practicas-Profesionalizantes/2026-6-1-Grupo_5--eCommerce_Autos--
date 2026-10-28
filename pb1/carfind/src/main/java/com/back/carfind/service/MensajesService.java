@@ -20,9 +20,7 @@ public class MensajesService {
 
     public Mensajes obtenerMensaje(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Mensaje no encontrado"
-                ));
+                .orElseThrow(() -> new RuntimeException("Mensaje no encontrado"));
     }
 
     public List<Mensajes> listarMensajes() {
@@ -31,19 +29,16 @@ public class MensajesService {
 
     public Mensajes actualizarMensaje(Long id, Mensajes datos) {
         Mensajes mensaje = obtenerMensaje(id);
-
-        mensaje.setId_chat(datos.getId_chat());
-        mensaje.setId_emisor(datos.getId_emisor());
+        mensaje.setChatId(datos.getChatId());
+        mensaje.setEmisorId(datos.getEmisorId());
         mensaje.setContenido(datos.getContenido());
         mensaje.setFecha(datos.getFecha());
         mensaje.setLeido(datos.getLeido());
-
         return repository.save(mensaje);
     }
 
     public void eliminarMensaje(Long id) {
         Mensajes mensaje = obtenerMensaje(id);
-
         repository.delete(mensaje);
     }
 }

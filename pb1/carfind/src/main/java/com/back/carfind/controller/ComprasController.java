@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.Compras;
-import com.back.carfind.service.ComprasService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.Compras;
+import com.back.carfind.service.ComprasService;
 
 @RestController
 @RequestMapping("/api/compras")
@@ -19,12 +20,12 @@ public class ComprasController {
 
     @PostMapping
     public Compras crearCompra(@RequestBody Compras compra) {
-        return service.crearCompras(compra);
+        return service.crearCompra(compra);
     }
 
     @GetMapping("/{id}")
     public Compras obtenerCompra(@PathVariable Long id) {
-        return service.obtenerCompras(id);
+        return service.obtenerCompra(id);
     }
 
     @GetMapping
@@ -34,11 +35,11 @@ public class ComprasController {
 
     @PutMapping("/{id}")
     public Compras actualizarCompra(@PathVariable Long id, @RequestBody Compras compra) {
-        return service.actualizarCompras(id, compra);
+        return service.actualizarCompra(id, compra);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarCompra(@PathVariable Long id) {
-        service.eliminarcompras(id);
+        service.eliminarCompra(id);
     }
 }

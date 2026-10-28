@@ -1,77 +1,78 @@
 package com.back.carfind.model;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name = "estadisticas_publicacion")
 public class EstadisticasPublicacion {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_publicacion;
+    @Id
+    @Column(name = "publicacion_id", nullable = false)
+    private Long publicacionId;
 
-@Column
-private Integer vistas;
+    @Column(name = "vistas")
+    private Integer vistas;
 
-@Column
-private Integer clicks;
+    @Column(name = "clicks")
+    private Integer clicks;
 
-@Column
-private Integer favoritos;
+    @Column(name = "favoritos")
+    private Integer favoritos;
 
-@Column
-private Integer contactos;
+    @Column(name = "contactos")
+    private Integer contactos;
 
-@Column
-private Integer compartidos;
+    @Column(name = "compartidos")
+    private Integer compartidos;
 
-public Long getId_publicacion() {
-	return id_publicacion;
-}
+    public Long getPublicacionId() {
+        return publicacionId;
+    }
 
-public void setId_publicacion(Long id_publicacion) {
-	this.id_publicacion = id_publicacion;
-}
+    public void setPublicacionId(Long publicacionId) {
+        this.publicacionId = publicacionId;
+    }
 
-public Integer getVistas() {
-	return vistas;
-}
+    public Integer getVistas() {
+        return vistas;
+    }
 
-public void setVistas(Integer vistas) {
-	this.vistas = vistas;
-}
+    public void setVistas(Integer vistas) {
+        this.vistas = vistas;
+    }
 
-public Integer getClicks() {
-	return clicks;
-}
+    public Integer getClicks() {
+        return clicks;
+    }
 
-public void setClicks(Integer clicks) {
-	this.clicks = clicks;
-}
+    public void setClicks(Integer clicks) {
+        this.clicks = clicks;
+    }
 
-public Integer getFavoritos() {
-	return favoritos;
-}
+    public Integer getFavoritos() {
+        return favoritos;
+    }
 
-public void setFavoritos(Integer favoritos) {
-	this.favoritos = favoritos;
-}
+    public void setFavoritos(Integer favoritos) {
+        this.favoritos = favoritos;
+    }
 
-public Integer getContactos() {
-	return contactos;
-}
+    public Integer getContactos() {
+        return contactos;
+    }
 
-public void setContactos(Integer contactos) {
-	this.contactos = contactos;
-}
+    public void setContactos(Integer contactos) {
+        this.contactos = contactos;
+    }
 
-public Integer getCompartidos() {
-	return compartidos;
-}
+    public Integer getCompartidos() {
+        return compartidos;
+    }
 
-public void setCompartidos(Integer compartidos) {
-	this.compartidos = compartidos;
-}
-
+    public void setCompartidos(Integer compartidos) {
+        this.compartidos = compartidos;
+    }
 }

@@ -20,33 +20,23 @@ public class SesionesService {
 
     public Sesiones obtenerSesion(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Sesión no encontrada"
-                ));
+                .orElseThrow(() -> new RuntimeException("Sesion no encontrada"));
     }
 
     public List<Sesiones> listarSesiones() {
         return repository.findAll();
     }
 
-    public Sesiones actualizarSesion(
-            Long id,
-            Sesiones datos) {
-
+    public Sesiones actualizarSesion(Long id, Sesiones datos) {
         Sesiones sesion = obtenerSesion(id);
-
-        sesion.setId_usuario(datos.getId_usuario());
+        sesion.setUsuarioId(datos.getUsuarioId());
         sesion.setToken(datos.getToken());
-        sesion.setFecha_expiracion(
-                datos.getFecha_expiracion()
-        );
-
+        sesion.setFechaExpiracion(datos.getFechaExpiracion());
         return repository.save(sesion);
     }
 
     public void eliminarSesion(Long id) {
         Sesiones sesion = obtenerSesion(id);
-
         repository.delete(sesion);
     }
 }

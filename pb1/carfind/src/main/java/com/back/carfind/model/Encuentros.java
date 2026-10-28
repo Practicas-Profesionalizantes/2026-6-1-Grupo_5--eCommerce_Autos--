@@ -1,115 +1,116 @@
 package com.back.carfind.model;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
-public class Encuentros{
+@Table(name = "encuentros")
+public class Encuentros {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_encuentros;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_compra;
+    @Column(name = "compra_id")
+    private Long compraId;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_vendedor;
+    @Column(name = "vendedor_id")
+    private Long vendedorId;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_comprador;
+    @Column(name = "comprador_id")
+    private Long compradorId;
 
-@Column
-private LocalDate fecha_programada;
+    @Column(name = "fecha_programada")
+    private LocalDateTime fechaProgramada;
 
-@Column
-private String lugar;
+    @Column(name = "lugar", length = 255)
+    private String lugar;
 
-@Column
-private String estado;
+    @Column(name = "estado")
+    private String estado;
 
-@Column
-private String notas;
+    @Column(name = "notas", columnDefinition = "TEXT")
+    private String notas;
 
-@Column 
-private LocalDate fecha_creacion;
+    @Column(name = "fecha_creacion", nullable = false)
+    private LocalDateTime fechaCreacion;
 
-public Long getId_encuentros() {
-	return id_encuentros;
-}
+    public Long getId() {
+        return id;
+    }
 
-public void setId_encuentros(Long id_encuentros) {
-	this.id_encuentros = id_encuentros;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public Long getId_compra() {
-	return id_compra;
-}
+    public Long getCompraId() {
+        return compraId;
+    }
 
-public void setId_compra(Long id_compra) {
-	this.id_compra = id_compra;
-}
+    public void setCompraId(Long compraId) {
+        this.compraId = compraId;
+    }
 
-public Long getId_vendedor() {
-	return id_vendedor;
-}
+    public Long getVendedorId() {
+        return vendedorId;
+    }
 
-public void setId_vendedor(Long id_vendedor) {
-	this.id_vendedor = id_vendedor;
-}
+    public void setVendedorId(Long vendedorId) {
+        this.vendedorId = vendedorId;
+    }
 
-public Long getId_comprador() {
-	return id_comprador;
-}
+    public Long getCompradorId() {
+        return compradorId;
+    }
 
-public void setId_comprador(Long id_comprador) {
-	this.id_comprador = id_comprador;
-}
+    public void setCompradorId(Long compradorId) {
+        this.compradorId = compradorId;
+    }
 
-public LocalDate getFecha_programada() {
-	return fecha_programada;
-}
+    public LocalDateTime getFechaProgramada() {
+        return fechaProgramada;
+    }
 
-public void setFecha_programada(LocalDate fecha_programada) {
-	this.fecha_programada = fecha_programada;
-}
+    public void setFechaProgramada(LocalDateTime fechaProgramada) {
+        this.fechaProgramada = fechaProgramada;
+    }
 
-public String getLugar() {
-	return lugar;
-}
+    public String getLugar() {
+        return lugar;
+    }
 
-public void setLugar(String lugar) {
-	this.lugar = lugar;
-}
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
 
-public String getEstado() {
-	return estado;
-}
+    public String getEstado() {
+        return estado;
+    }
 
-public void setEstado(String estado) {
-	this.estado = estado;
-}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-public String getNotas() {
-	return notas;
-}
+    public String getNotas() {
+        return notas;
+    }
 
-public void setNotas(String notas) {
-	this.notas = notas;
-}
+    public void setNotas(String notas) {
+        this.notas = notas;
+    }
 
-public LocalDate getFecha_creacion() {
-	return fecha_creacion;
-}
+    public LocalDateTime getFechaCreacion() {
+        return fechaCreacion;
+    }
 
-public void setFecha_creacion(LocalDate fecha_creacion) {
-	this.fecha_creacion = fecha_creacion;
-}
-
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
 }

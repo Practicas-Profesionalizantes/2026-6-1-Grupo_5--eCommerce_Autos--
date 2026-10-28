@@ -1,33 +1,48 @@
 package com.back.carfind.model;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name = "variante_opciones")
 public class VariantesOpciones {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long variante_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-public Long getVariante_id() {
-	return variante_id;
-}
+    @Column(name = "variante_id")
+    private Long varianteId;
 
-public void setVariante_id(Long variante_id) {
-	this.variante_id = variante_id;
-}
+    @Column(name = "valor", length = 50)
+    private String valor;
 
-public String getValor() {
-	return valor;
-}
+    public Long getId() {
+        return id;
+    }
 
-public void setValor(String valor) {
-	this.valor = valor;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-@Column
-private String valor;
+    public Long getVarianteId() {
+        return varianteId;
+    }
 
+    public void setVarianteId(Long varianteId) {
+        this.varianteId = varianteId;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
 }

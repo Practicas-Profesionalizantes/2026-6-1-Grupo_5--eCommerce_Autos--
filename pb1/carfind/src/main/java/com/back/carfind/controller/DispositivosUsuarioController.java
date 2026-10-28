@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.DispositivosUsuario;
-import com.back.carfind.service.DispositivosUsuarioService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.DispositivosUsuario;
+import com.back.carfind.service.DispositivosUsuarioService;
 
 @RestController
 @RequestMapping("/api/dispositivos-usuario")
@@ -19,26 +20,26 @@ public class DispositivosUsuarioController {
 
     @PostMapping
     public DispositivosUsuario crearDispositivoUsuario(@RequestBody DispositivosUsuario dispositivoUsuario) {
-        return service.crearDispositivosUsuario(dispositivoUsuario);
+        return service.crearDispositivoUsuario(dispositivoUsuario);
     }
 
     @GetMapping("/{id}")
     public DispositivosUsuario obtenerDispositivoUsuario(@PathVariable Long id) {
-        return service.obtenerDispositivosUsuario(id);
+        return service.obtenerDispositivoUsuario(id);
     }
 
     @GetMapping
     public List<DispositivosUsuario> listarDispositivosUsuario() {
-        return service.listarDispositivoUsuario();
+        return service.listarDispositivosUsuario();
     }
 
     @PutMapping("/{id}")
     public DispositivosUsuario actualizarDispositivoUsuario(@PathVariable Long id, @RequestBody DispositivosUsuario dispositivoUsuario) {
-        return service.actualizarDispositivosUsuario(id, dispositivoUsuario);
+        return service.actualizarDispositivoUsuario(id, dispositivoUsuario);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarDispositivoUsuario(@PathVariable Long id) {
-        service.eliminarDispositivosUsuario(id);
+        service.eliminarDispositivoUsuario(id);
     }
 }

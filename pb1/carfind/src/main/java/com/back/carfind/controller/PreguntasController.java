@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.Preguntas;
-import com.back.carfind.service.PreguntasService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.Preguntas;
+import com.back.carfind.service.PreguntasService;
 
 @RestController
 @RequestMapping("/api/preguntas")

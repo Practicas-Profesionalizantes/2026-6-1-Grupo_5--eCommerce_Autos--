@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.HistorialPublicaciones;
-import com.back.carfind.service.HistorialPublicacionesService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.HistorialPublicaciones;
+import com.back.carfind.service.HistorialPublicacionesService;
 
 @RestController
 @RequestMapping("/api/historial-publicaciones")

@@ -20,9 +20,7 @@ public class OfertasService {
 
     public Ofertas obtenerOferta(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Oferta no encontrada"
-                ));
+                .orElseThrow(() -> new RuntimeException("Oferta no encontrada"));
     }
 
     public List<Ofertas> listarOfertas() {
@@ -31,33 +29,16 @@ public class OfertasService {
 
     public Ofertas actualizarOferta(Long id, Ofertas datos) {
         Ofertas oferta = obtenerOferta(id);
-
-        oferta.setId_publicacion(
-                datos.getId_publicacion()
-        );
-
-        oferta.setId_comprador(
-                datos.getId_comprador()
-        );
-
-        oferta.setMonto_reporte(
-                datos.getMonto_reporte()
-        );
-
-        oferta.setEstado(
-                datos.getEstado()
-        );
-
-        oferta.setFecha_oferta(
-                datos.getFecha_oferta()
-        );
-
+        oferta.setPublicacionId(datos.getPublicacionId());
+        oferta.setCompradorId(datos.getCompradorId());
+        oferta.setMonto(datos.getMonto());
+        oferta.setEstado(datos.getEstado());
+        oferta.setFecha(datos.getFecha());
         return repository.save(oferta);
     }
 
     public void eliminarOferta(Long id) {
         Ofertas oferta = obtenerOferta(id);
-
         repository.delete(oferta);
     }
 }

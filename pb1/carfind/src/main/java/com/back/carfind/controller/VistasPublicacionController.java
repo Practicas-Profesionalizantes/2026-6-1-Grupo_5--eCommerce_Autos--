@@ -1,10 +1,13 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.VistasPublicacion;
-import com.back.carfind.service.VistasPublicacionService;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.VistasPublicacion;
+import com.back.carfind.service.VistasPublicacionService;
 
 @RestController
 @RequestMapping("/api/vistas-publicacion")
@@ -18,27 +21,22 @@ public class VistasPublicacionController {
     }
 
     @PostMapping
-    public VistasPublicacion crearVistaPublicacion(@RequestBody VistasPublicacion vistasPublicacion) {
-        return service.crearVista(vistasPublicacion);
+    public VistasPublicacion crearVistaPublicacion(@RequestBody VistasPublicacion vistaPublicacion) {
+        return service.crearVistaPublicacion(vistaPublicacion);
     }
 
-    @GetMapping("/{id}")
-    public VistasPublicacion obtenerVistaPublicacion(@PathVariable Long id) {
-        return service.obtenerVista(id);
+    @GetMapping("/{usuarioId}/{publicacionId}")
+    public VistasPublicacion obtenerVistaPublicacion(@PathVariable Long usuarioId, @PathVariable Long publicacionId, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fecha) {
+        return service.obtenerVistaPublicacion(usuarioId, publicacionId, fecha);
     }
 
     @GetMapping
     public List<VistasPublicacion> listarVistasPublicacion() {
-        return service.listarVistas();
+        return service.listarVistasPublicacion();
     }
 
-    @PutMapping("/{id}")
-    public VistasPublicacion actualizarVistaPublicacion(@PathVariable Long id, @RequestBody VistasPublicacion vistasPublicacion) {
-        return service.actualizarVista(id, vistasPublicacion);
-    }
-
-    @DeleteMapping("/{id}")
-    public void eliminarVistaPublicacion(@PathVariable Long id) {
-        service.eliminarVista(id);
+    @DeleteMapping("/{usuarioId}/{publicacionId}")
+    public void eliminarVistaPublicacion(@PathVariable Long usuarioId, @PathVariable Long publicacionId, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fecha) {
+        service.eliminarVistaPublicacion(usuarioId, publicacionId, fecha);
     }
 }

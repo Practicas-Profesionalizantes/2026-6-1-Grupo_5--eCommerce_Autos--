@@ -1,68 +1,84 @@
 package com.back.carfind.model;
-import java.time.LocalDate;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name = "compras")
 public class Compras {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_compra;
-@Column
-private Long id_comprador;
-@Column
-private Long id_publicacion;
-@Column 
-private Float precio_final;
-@Column
-private String estado;
-@Column
-private LocalDate fecha_compra;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
+    @Column(name = "comprador_id", nullable = false)
+    private Long compradorId;
 
-public Long getId_compra() {
-	return id_compra;
-}
-public void setId_compra(Long id_compra) {
-	this.id_compra = id_compra;
-}
-public Long getId_comprador() {
-	return id_comprador;
-}
-public void setId_comprador(Long id_comprador) {
-	this.id_comprador = id_comprador;
-}
-public Long getId_publicacion() {
-	return id_publicacion;
-}
-public void setId_publicacion(Long id_publicacion) {
-	this.id_publicacion = id_publicacion;
-}
-public Float getPrecio_final() {
-	return precio_final;
-}
-public void setPrecio_final(Float precio_final) {
-	this.precio_final = precio_final;
-}
-public String getEstado() {
-	return estado;
-}
-public void setEstado(String estado) {
-	this.estado = estado;
-}
-public LocalDate getFecha_compra() {
-	return fecha_compra;
-}
-public void setFecha_compra(LocalDate fecha_compra) {
-	this.fecha_compra = fecha_compra;
-}
+    @Column(name = "publicacion_id", nullable = false)
+    private Long publicacionId;
 
+    @Column(name = "precio_final", nullable = false)
+    private BigDecimal precioFinal;
 
+    @Column(name = "estado")
+    private String estado;
 
+    @Column(name = "fecha", nullable = false)
+    private LocalDateTime fecha;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getCompradorId() {
+        return compradorId;
+    }
+
+    public void setCompradorId(Long compradorId) {
+        this.compradorId = compradorId;
+    }
+
+    public Long getPublicacionId() {
+        return publicacionId;
+    }
+
+    public void setPublicacionId(Long publicacionId) {
+        this.publicacionId = publicacionId;
+    }
+
+    public BigDecimal getPrecioFinal() {
+        return precioFinal;
+    }
+
+    public void setPrecioFinal(BigDecimal precioFinal) {
+        this.precioFinal = precioFinal;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
 }

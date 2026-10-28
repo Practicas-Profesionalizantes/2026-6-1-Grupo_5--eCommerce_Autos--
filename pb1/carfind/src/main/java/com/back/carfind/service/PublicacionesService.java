@@ -20,23 +20,17 @@ public class PublicacionesService {
 
     public Publicaciones obtenerPublicacion(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Publicación no encontrada"
-                ));
+                .orElseThrow(() -> new RuntimeException("Publicacion no encontrada"));
     }
 
     public List<Publicaciones> listarPublicaciones() {
         return repository.findAll();
     }
 
-    public Publicaciones actualizarPublicacion(
-            Long id,
-            Publicaciones datos) {
-
+    public Publicaciones actualizarPublicacion(Long id, Publicaciones datos) {
         Publicaciones publicacion = obtenerPublicacion(id);
-
-        publicacion.setId_usuario(datos.getId_usuario());
-        publicacion.setId_auto(datos.getId_auto());
+        publicacion.setUsuarioId(datos.getUsuarioId());
+        publicacion.setAutoId(datos.getAutoId());
         publicacion.setPrecio(datos.getPrecio());
         publicacion.setMoneda(datos.getMoneda());
         publicacion.setEstado(datos.getEstado());
@@ -44,19 +38,15 @@ public class PublicacionesService {
         publicacion.setDestacado(datos.getDestacado());
         publicacion.setVisitas(datos.getVisitas());
         publicacion.setDescripcion(datos.getDescripcion());
-        publicacion.setFecha_publicacion(
-                datos.getFecha_publicacion()
-        );
-        publicacion.setFecha_expiracion(
-                datos.getFecha_expiracion()
-        );
-
+        publicacion.setFechaPublicacion(datos.getFechaPublicacion());
+        publicacion.setFechaExpiracion(datos.getFechaExpiracion());
+        publicacion.setEliminado(datos.getEliminado());
+        publicacion.setFechaEliminacion(datos.getFechaEliminacion());
         return repository.save(publicacion);
     }
 
     public void eliminarPublicacion(Long id) {
         Publicaciones publicacion = obtenerPublicacion(id);
-
         repository.delete(publicacion);
     }
 }

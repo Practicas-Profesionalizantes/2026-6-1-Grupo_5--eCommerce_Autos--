@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.TipoPago;
-import com.back.carfind.service.TipoPagoService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.TipoPago;
+import com.back.carfind.service.TipoPagoService;
 
 @RestController
 @RequestMapping("/api/tipos-pago")

@@ -14,49 +14,29 @@ public class HistorialPreciosService {
     @Autowired
     private HistorialPreciosRepository repository;
 
-    public HistorialPrecios crearHistorialPrecio(
-            HistorialPrecios historialPrecio) {
-
+    public HistorialPrecios crearHistorialPrecio(HistorialPrecios historialPrecio) {
         return repository.save(historialPrecio);
     }
 
     public HistorialPrecios obtenerHistorialPrecio(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Historial de precio no encontrado"
-                ));
+                .orElseThrow(() -> new RuntimeException("Historial de precio no encontrado"));
     }
 
     public List<HistorialPrecios> listarHistorialPrecios() {
         return repository.findAll();
     }
 
-    public HistorialPrecios actualizarHistorialPrecio(
-            Long id,
-            HistorialPrecios datos) {
-
-        HistorialPrecios historialPrecio =
-                obtenerHistorialPrecio(id);
-
-        historialPrecio.setId_publicacion(
-                datos.getId_publicacion()
-        );
-
-        historialPrecio.setPrecio(
-                datos.getPrecio()
-        );
-
-        historialPrecio.setFecha_precio(
-                datos.getFecha_precio()
-        );
-
+    public HistorialPrecios actualizarHistorialPrecio(Long id, HistorialPrecios datos) {
+        HistorialPrecios historialPrecio = obtenerHistorialPrecio(id);
+        historialPrecio.setPublicacionId(datos.getPublicacionId());
+        historialPrecio.setPrecio(datos.getPrecio());
+        historialPrecio.setFecha(datos.getFecha());
         return repository.save(historialPrecio);
     }
 
     public void eliminarHistorialPrecio(Long id) {
-        HistorialPrecios historialPrecio =
-                obtenerHistorialPrecio(id);
-
+        HistorialPrecios historialPrecio = obtenerHistorialPrecio(id);
         repository.delete(historialPrecio);
     }
 }

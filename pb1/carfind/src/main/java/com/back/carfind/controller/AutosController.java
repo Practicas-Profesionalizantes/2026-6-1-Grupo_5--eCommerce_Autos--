@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.Autos;
-import com.back.carfind.service.AutosService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.Autos;
+import com.back.carfind.service.AutosService;
 
 @RestController
 @RequestMapping("/api/autos")
@@ -18,13 +19,13 @@ public class AutosController {
     }
 
     @PostMapping
-    public Autos crearAutos(@RequestBody Autos autos) {
-        return service.crearAutos(autos);
+    public Autos crearAuto(@RequestBody Autos auto) {
+        return service.crearAuto(auto);
     }
 
     @GetMapping("/{id}")
-    public Autos obtenerAutos(@PathVariable Long id) {
-        return service.obtenerAutos(id);
+    public Autos obtenerAuto(@PathVariable Long id) {
+        return service.obtenerAuto(id);
     }
 
     @GetMapping
@@ -33,12 +34,12 @@ public class AutosController {
     }
 
     @PutMapping("/{id}")
-    public Autos actualizarAutos(@PathVariable Long id, @RequestBody Autos autos) {
-        return service.actualizarAutos(id, autos);
+    public Autos actualizarAuto(@PathVariable Long id, @RequestBody Autos auto) {
+        return service.actualizarAuto(id, auto);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarautos(@PathVariable Long id) {
-        service.eliminarautos(id);
+    public void eliminarAuto(@PathVariable Long id) {
+        service.eliminarAuto(id);
     }
 }

@@ -20,9 +20,7 @@ public class MarcasService {
 
     public Marcas obtenerMarca(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Marca no encontrada"
-                ));
+                .orElseThrow(() -> new RuntimeException("Marca no encontrada"));
     }
 
     public List<Marcas> listarMarcas() {
@@ -31,15 +29,12 @@ public class MarcasService {
 
     public Marcas actualizarMarca(Long id, Marcas datos) {
         Marcas marca = obtenerMarca(id);
-
-        marca.setNombre_marca(datos.getNombre_marca());
-
+        marca.setNombre(datos.getNombre());
         return repository.save(marca);
     }
 
     public void eliminarMarca(Long id) {
         Marcas marca = obtenerMarca(id);
-
         repository.delete(marca);
     }
 }

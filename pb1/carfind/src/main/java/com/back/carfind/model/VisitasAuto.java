@@ -1,70 +1,72 @@
 package com.back.carfind.model;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
-public class VisitasAuto{
+@Table(name = "visitas_auto")
+public class VisitasAuto {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_visitas_auto;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_auto;
+    @Column(name = "auto_id")
+    private Long autoId;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_comprador;
+    @Column(name = "comprador_id")
+    private Long compradorId;
 
-@Column
-private LocalDate fecha;
+    @Column(name = "fecha")
+    private LocalDateTime fecha;
 
-@Column
-private String resultado;
+    @Column(name = "resultado")
+    private String resultado;
 
-public Long getId_visitas_auto() {
-	return id_visitas_auto;
-}
+    public Long getId() {
+        return id;
+    }
 
-public void setId_visitas_auto(Long id_visitas_auto) {
-	this.id_visitas_auto = id_visitas_auto;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public Long getId_auto() {
-	return id_auto;
-}
+    public Long getAutoId() {
+        return autoId;
+    }
 
-public void setId_auto(Long id_auto) {
-	this.id_auto = id_auto;
-}
+    public void setAutoId(Long autoId) {
+        this.autoId = autoId;
+    }
 
-public Long getId_comprador() {
-	return id_comprador;
-}
+    public Long getCompradorId() {
+        return compradorId;
+    }
 
-public void setId_comprador(Long id_comprador) {
-	this.id_comprador = id_comprador;
-}
+    public void setCompradorId(Long compradorId) {
+        this.compradorId = compradorId;
+    }
 
-public LocalDate getFecha() {
-	return fecha;
-}
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
 
-public void setFecha(LocalDate fecha) {
-	this.fecha = fecha;
-}
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
 
-public String getResultado() {
-	return resultado;
-}
+    public String getResultado() {
+        return resultado;
+    }
 
-public void setResultado(String resultado) {
-	this.resultado = resultado;
-}
-
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
 }

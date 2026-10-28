@@ -5,39 +5,44 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "roles")
 public class Roles {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_rol;
-@Column
-private String nombre_rol;
-@Column
-private Boolean activo_rol;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-public Long getId_rol() {
-return id_rol;
-}
-public void setId_rol(Long id_rol) {
-this.id_rol = id_rol;
-}
+    @Column(name = "nombre", nullable = false, length = 50)
+    private String nombre;
 
-public String getNombre_rol() {
-return nombre_rol;
-}
-public void setNombre_rol(String nombre_rol) {
-this.nombre_rol = nombre_rol;
-}
+    @Column(name = "activo")
+    private Boolean activo;
 
-public Boolean getActivo_rol() {
-return activo_rol;
-}
-public void setActivo_rol(Boolean activo_rol) {
-this.activo_rol = activo_rol;
-}
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
 }

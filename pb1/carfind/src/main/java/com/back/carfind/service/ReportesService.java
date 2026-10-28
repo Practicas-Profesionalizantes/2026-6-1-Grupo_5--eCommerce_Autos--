@@ -20,40 +20,26 @@ public class ReportesService {
 
     public Reportes obtenerReporte(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Reporte no encontrado"
-                ));
+                .orElseThrow(() -> new RuntimeException("Reporte no encontrado"));
     }
 
     public List<Reportes> listarReportes() {
         return repository.findAll();
     }
 
-    public Reportes actualizarReporte(
-            Long id,
-            Reportes datos) {
-
+    public Reportes actualizarReporte(Long id, Reportes datos) {
         Reportes reporte = obtenerReporte(id);
-
-        reporte.setId_usuario(datos.getId_usuario());
-        reporte.setId_publicacion(
-                datos.getId_publicacion()
-        );
+        reporte.setUsuarioId(datos.getUsuarioId());
+        reporte.setPublicacionId(datos.getPublicacionId());
         reporte.setMotivo(datos.getMotivo());
-        reporte.setDescripcion(
-                datos.getDescripcion()
-        );
+        reporte.setDescripcion(datos.getDescripcion());
         reporte.setEstado(datos.getEstado());
-        reporte.setFecha_reporte(
-                datos.getFecha_reporte()
-        );
-
+        reporte.setFecha(datos.getFecha());
         return repository.save(reporte);
     }
 
     public void eliminarReporte(Long id) {
         Reportes reporte = obtenerReporte(id);
-
         repository.delete(reporte);
     }
 }

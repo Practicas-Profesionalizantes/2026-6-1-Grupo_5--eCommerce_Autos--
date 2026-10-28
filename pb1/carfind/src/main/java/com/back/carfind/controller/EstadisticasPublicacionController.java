@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.EstadisticasPublicacion;
-import com.back.carfind.service.EstadisticasPublicacionService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.EstadisticasPublicacion;
+import com.back.carfind.service.EstadisticasPublicacionService;
 
 @RestController
 @RequestMapping("/api/estadisticas-publicacion")
@@ -18,13 +19,13 @@ public class EstadisticasPublicacionController {
     }
 
     @PostMapping
-    public EstadisticasPublicacion crearEstadistica(@RequestBody EstadisticasPublicacion estadisticasPublicacion) {
-        return service.crearEstadisticas(estadisticasPublicacion);
+    public EstadisticasPublicacion crearEstadistica(@RequestBody EstadisticasPublicacion estadistica) {
+        return service.crearEstadistica(estadistica);
     }
 
     @GetMapping("/{id}")
     public EstadisticasPublicacion obtenerEstadistica(@PathVariable Long id) {
-        return service.obtenerEstadisticas(id);
+        return service.obtenerEstadistica(id);
     }
 
     @GetMapping
@@ -33,12 +34,12 @@ public class EstadisticasPublicacionController {
     }
 
     @PutMapping("/{id}")
-    public EstadisticasPublicacion actualizarEstadistica(@PathVariable Long id, @RequestBody EstadisticasPublicacion estadisticasPublicacion) {
-        return service.actualizarEstadisticas(id, estadisticasPublicacion);
+    public EstadisticasPublicacion actualizarEstadistica(@PathVariable Long id, @RequestBody EstadisticasPublicacion estadistica) {
+        return service.actualizarEstadistica(id, estadistica);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarEstadistica(@PathVariable Long id) {
-        service.eliminarEstadisticas(id);
+        service.eliminarEstadistica(id);
     }
 }

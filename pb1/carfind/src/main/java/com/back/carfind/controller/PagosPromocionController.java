@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.PagosPromocion;
-import com.back.carfind.service.PagosPromocionService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.PagosPromocion;
+import com.back.carfind.service.PagosPromocionService;
 
 @RestController
 @RequestMapping("/api/pagos-promocion")
@@ -28,7 +29,7 @@ public class PagosPromocionController {
     }
 
     @GetMapping
-    public List<PagosPromocion> listarPagosPromociones() {
+    public List<PagosPromocion> listarPagosPromocion() {
         return service.listarPagosPromocion();
     }
 

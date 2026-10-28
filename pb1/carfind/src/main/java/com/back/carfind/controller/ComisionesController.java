@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.Comisiones;
-import com.back.carfind.service.ComisionesService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.Comisiones;
+import com.back.carfind.service.ComisionesService;
 
 @RestController
 @RequestMapping("/api/comisiones")
@@ -18,13 +19,13 @@ public class ComisionesController {
     }
 
     @PostMapping
-    public Comisiones crearComision(@RequestBody Comisiones comisiones) {
-        return service.crearComisiones(comisiones);
+    public Comisiones crearComision(@RequestBody Comisiones comision) {
+        return service.crearComision(comision);
     }
 
     @GetMapping("/{id}")
     public Comisiones obtenerComision(@PathVariable Long id) {
-        return service.obtenerComisiones(id);
+        return service.obtenerComision(id);
     }
 
     @GetMapping
@@ -33,12 +34,12 @@ public class ComisionesController {
     }
 
     @PutMapping("/{id}")
-    public Comisiones actualizarComision(@PathVariable Long id, @RequestBody Comisiones comisiones) {
-        return service.actualizarComisiones(id, comisiones);
+    public Comisiones actualizarComision(@PathVariable Long id, @RequestBody Comisiones comision) {
+        return service.actualizarComision(id, comision);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarComision(@PathVariable Long id) {
-        service.eliminarcomisiones(id);
+        service.eliminarComision(id);
     }
 }

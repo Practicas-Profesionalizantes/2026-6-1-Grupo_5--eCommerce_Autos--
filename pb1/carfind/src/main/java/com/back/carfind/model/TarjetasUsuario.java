@@ -1,78 +1,92 @@
 package com.back.carfind.model;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name = "tarjetas_usuario")
 public class TarjetasUsuario {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_tarjetas_usuario;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-@Column
-private String marca;
+    @Column(name = "usuario_id")
+    private Long usuarioId;
 
-@Column 
-private String ultimos4;
+    @Column(name = "marca", length = 20)
+    private String marca;
 
-@Column
-private Long token;
+    @Column(name = "ultimos4", length = 4)
+    private String ultimos4;
 
-@Column
-private Integer vencimiento_mes;
+    @Column(name = "token", columnDefinition = "TEXT")
+    private String token;
 
-@Column 
-private Integer vencmiento_anio;
+    @Column(name = "vencimiento_mes")
+    private Integer vencimientoMes;
 
-public Long getId_tarjetas_usuario() {
-	return id_tarjetas_usuario;
-}
+    @Column(name = "vencimiento_anio")
+    private Integer vencimientoAnio;
 
-public void setId_tarjetas_usuario(Long id_tarjetas_usuario) {
-	this.id_tarjetas_usuario = id_tarjetas_usuario;
-}
+    public Long getId() {
+        return id;
+    }
 
-public String getMarca() {
-	return marca;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public void setMarca(String marca) {
-	this.marca = marca;
-}
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
 
-public String getUltimos4() {
-	return ultimos4;
-}
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 
-public void setUltimos4(String ultimos4) {
-	this.ultimos4 = ultimos4;
-}
+    public String getMarca() {
+        return marca;
+    }
 
-public Long getToken() {
-	return token;
-}
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
 
-public void setToken(Long token) {
-	this.token = token;
-}
+    public String getUltimos4() {
+        return ultimos4;
+    }
 
-public Integer getVencimiento_mes() {
-	return vencimiento_mes;
-}
+    public void setUltimos4(String ultimos4) {
+        this.ultimos4 = ultimos4;
+    }
 
-public void setVencimiento_mes(Integer vencimiento_mes) {
-	this.vencimiento_mes = vencimiento_mes;
-}
+    public String getToken() {
+        return token;
+    }
 
-public Integer getVencmiento_anio() {
-	return vencmiento_anio;
-}
+    public void setToken(String token) {
+        this.token = token;
+    }
 
-public void setVencmiento_anio(Integer vencmiento_anio) {
-	this.vencmiento_anio = vencmiento_anio;
-}
+    public Integer getVencimientoMes() {
+        return vencimientoMes;
+    }
 
+    public void setVencimientoMes(Integer vencimientoMes) {
+        this.vencimientoMes = vencimientoMes;
+    }
 
+    public Integer getVencimientoAnio() {
+        return vencimientoAnio;
+    }
+
+    public void setVencimientoAnio(Integer vencimientoAnio) {
+        this.vencimientoAnio = vencimientoAnio;
+    }
 }

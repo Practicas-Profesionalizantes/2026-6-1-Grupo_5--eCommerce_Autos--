@@ -1,120 +1,182 @@
 package com.back.carfind.model;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name = "autos")
 public class Autos {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_auto;
-@Column
-private Long modelo_id ;
-@Column
-private Double version;
-@Column
-private Integer anio;
-@Column
-private Integer kms;
-@Column
-private Boolean vtv;
-@Column 
-private Boolean grabado;
-@Column
-private Long combustible_id;
-@Column
-private Long transmision_id;
-@Column
-private String color;
-@Column
-private Integer puertas;
-@Column
-private String descripcion;
-@Column
-private LocalDate fecha_creacion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-public Long getId_auto() {
-	return id_auto;
-}
-public void setId_auto(Long id_auto) {
-	this.id_auto = id_auto;
-}
-public Long getModelo_id() {
-	return modelo_id;
-}
-public void setModelo_id(Long modelo_id) {
-	this.modelo_id = modelo_id;
-}
-public Double getVersion() {
-	return version;
-}
-public void setVersion(Double version) {
-	this.version = version;
-}
-public Integer getAnio() {
-	return anio;
-}
-public void setAnio(Integer anio) {
-	this.anio = anio;
-}
-public Integer getKms() {
-	return kms;
-}
-public void setKms(Integer kms) {
-	this.kms = kms;
-}
-public Boolean getVtv() {
-	return vtv;
-}
-public void setVtv(Boolean vtv) {
-	this.vtv = vtv;
-}
-public Boolean getGrabado() {
-	return grabado;
-}
-public void setGrabado(Boolean grabado) {
-	this.grabado = grabado;
-}
-public Long getCombustible_id() {
-	return combustible_id;
-}
-public void setCombustible_id(Long combustible_id) {
-	this.combustible_id = combustible_id;
-}
-public Long getTransmision_id() {
-	return transmision_id;
-}
-public void setTransmision_id(Long transmision_id) {
-	this.transmision_id = transmision_id;
-}
-public String getColor() {
-	return color;
-}
-public void setColor(String color) {
-	this.color = color;
-}
-public Integer getPuertas() {
-	return puertas;
-}
-public void setPuertas(Integer puertas) {
-	this.puertas = puertas;
-}
-public String getDescripcion() {
-	return descripcion;
-}
-public void setDescripcion(String descripcion) {
-	this.descripcion = descripcion;
-}
-public LocalDate getFecha_creacion() {
-	return fecha_creacion;
-}
-public void setFecha_creacion(LocalDate fecha_creacion) {
-	this.fecha_creacion = fecha_creacion;
-}
+    @Column(name = "modelo_id", nullable = false)
+    private Long modeloId;
 
+    @Column(name = "versionn", length = 50)
+    private String version;
 
+    @Column(name = "anio")
+    private Integer anio;
 
+    @Column(name = "kms")
+    private Integer kms;
+
+    @Column(name = "vtv")
+    private Boolean vtv;
+
+    @Column(name = "grabado")
+    private Boolean grabado;
+
+    @Column(name = "combustible_id")
+    private Long combustibleId;
+
+    @Column(name = "transmision_id")
+    private Long transmisionId;
+
+    @Column(name = "color", length = 30)
+    private String color;
+
+    @Column(name = "puertas")
+    private Integer puertas;
+
+    @Column(name = "descripcion", columnDefinition = "TEXT")
+    private String descripcion;
+
+    @Column(name = "fecha_creacion", nullable = false)
+    private LocalDateTime fechaCreacion;
+
+    @Column(name = "eliminado")
+    private Boolean eliminado;
+
+    @Column(name = "fecha_eliminacion")
+    private LocalDateTime fechaEliminacion;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getModeloId() {
+        return modeloId;
+    }
+
+    public void setModeloId(Long modeloId) {
+        this.modeloId = modeloId;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public Integer getAnio() {
+        return anio;
+    }
+
+    public void setAnio(Integer anio) {
+        this.anio = anio;
+    }
+
+    public Integer getKms() {
+        return kms;
+    }
+
+    public void setKms(Integer kms) {
+        this.kms = kms;
+    }
+
+    public Boolean getVtv() {
+        return vtv;
+    }
+
+    public void setVtv(Boolean vtv) {
+        this.vtv = vtv;
+    }
+
+    public Boolean getGrabado() {
+        return grabado;
+    }
+
+    public void setGrabado(Boolean grabado) {
+        this.grabado = grabado;
+    }
+
+    public Long getCombustibleId() {
+        return combustibleId;
+    }
+
+    public void setCombustibleId(Long combustibleId) {
+        this.combustibleId = combustibleId;
+    }
+
+    public Long getTransmisionId() {
+        return transmisionId;
+    }
+
+    public void setTransmisionId(Long transmisionId) {
+        this.transmisionId = transmisionId;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Integer getPuertas() {
+        return puertas;
+    }
+
+    public void setPuertas(Integer puertas) {
+        this.puertas = puertas;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public LocalDateTime getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Boolean getEliminado() {
+        return eliminado;
+    }
+
+    public void setEliminado(Boolean eliminado) {
+        this.eliminado = eliminado;
+    }
+
+    public LocalDateTime getFechaEliminacion() {
+        return fechaEliminacion;
+    }
+
+    public void setFechaEliminacion(LocalDateTime fechaEliminacion) {
+        this.fechaEliminacion = fechaEliminacion;
+    }
 }

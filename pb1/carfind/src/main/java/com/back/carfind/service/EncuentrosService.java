@@ -20,30 +20,23 @@ public class EncuentrosService {
 
     public Encuentros obtenerEncuentro(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Encuentro no encontrado"
-                ));
+                .orElseThrow(() -> new RuntimeException("Encuentro no encontrado"));
     }
 
     public List<Encuentros> listarEncuentros() {
         return repository.findAll();
     }
 
-    public Encuentros actualizarEncuentro(
-            Long id,
-            Encuentros datos) {
-
+    public Encuentros actualizarEncuentro(Long id, Encuentros datos) {
         Encuentros encuentro = obtenerEncuentro(id);
-
-        encuentro.setId_compra(datos.getId_compra());
-        encuentro.setId_vendedor(datos.getId_vendedor());
-        encuentro.setId_comprador(datos.getId_comprador());
-        encuentro.setFecha_programada(datos.getFecha_programada());
+        encuentro.setCompraId(datos.getCompraId());
+        encuentro.setVendedorId(datos.getVendedorId());
+        encuentro.setCompradorId(datos.getCompradorId());
+        encuentro.setFechaProgramada(datos.getFechaProgramada());
         encuentro.setLugar(datos.getLugar());
         encuentro.setEstado(datos.getEstado());
         encuentro.setNotas(datos.getNotas());
-        encuentro.setFecha_creacion(datos.getFecha_creacion());
-
+        encuentro.setFechaCreacion(datos.getFechaCreacion());
         return repository.save(encuentro);
     }
 

@@ -1,72 +1,94 @@
 package com.back.carfind.model;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "notificaciones")
 public class Notificaciones {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_notificacion;
-@Column(nullable = false)
-private Long usuario_id;
-@Column
-private String tipo;
-@Column
-private String mensaje;
-@Column
-private Boolean leido;
-@Column
-private Long id_entidad;
-@Column
-private LocalDate fecha_notificacion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-public Long getId_notificacion() {
-	return id_notificacion;
-}
-public void setId_notificacion(Long id_notificacion) {
-	this.id_notificacion = id_notificacion;
-}
-public Long getUsuario_id() {
-	return usuario_id;
-}
-public void setUsuario_id(Long usuario_id) {
-	this.usuario_id = usuario_id;
-}
-public String getTipo() {
-	return tipo;
-}
-public void setTipo(String tipo) {
-	this.tipo = tipo;
-}
-public String getMensaje() {
-	return mensaje;
-}
-public void setMensaje(String mensaje) {
-	this.mensaje = mensaje;
-}
-public Boolean getLeido() {
-	return leido;
-}
-public void setLeido(Boolean leido) {
-	this.leido = leido;
-}
-public Long getId_entidad() {
-	return id_entidad;
-}
-public void setId_entidad(Long id_entidad) {
-	this.id_entidad = id_entidad;
-}
-public LocalDate getFecha_notificacion() {
-	return fecha_notificacion;
-}
-public void setFecha_notificacion(LocalDate fecha_notificacion) {
-	this.fecha_notificacion = fecha_notificacion;
-}
+    @Column(name = "usuario_id", nullable = false)
+    private Long usuarioId;
 
+    @Column(name = "tipo", length = 30)
+    private String tipo;
 
+    @Column(name = "mensaje", columnDefinition = "TEXT")
+    private String mensaje;
+
+    @Column(name = "leido")
+    private Boolean leido;
+
+    @Column(name = "entidad_id")
+    private Long entidadId;
+
+    @Column(name = "fecha", nullable = false)
+    private LocalDateTime fecha;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public Boolean getLeido() {
+        return leido;
+    }
+
+    public void setLeido(Boolean leido) {
+        this.leido = leido;
+    }
+
+    public Long getEntidadId() {
+        return entidadId;
+    }
+
+    public void setEntidadId(Long entidadId) {
+        this.entidadId = entidadId;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
 }

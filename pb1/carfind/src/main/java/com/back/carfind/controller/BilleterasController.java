@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.Billeteras;
-import com.back.carfind.service.BilleterasService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.Billeteras;
+import com.back.carfind.service.BilleterasService;
 
 @RestController
 @RequestMapping("/api/billeteras")
@@ -19,12 +20,12 @@ public class BilleterasController {
 
     @PostMapping
     public Billeteras crearBilletera(@RequestBody Billeteras billetera) {
-        return service.crearBilleteras(billetera);
+        return service.crearBilletera(billetera);
     }
 
     @GetMapping("/{id}")
     public Billeteras obtenerBilletera(@PathVariable Long id) {
-        return service.obtenerBilleteras(id);
+        return service.obtenerBilletera(id);
     }
 
     @GetMapping
@@ -34,11 +35,11 @@ public class BilleterasController {
 
     @PutMapping("/{id}")
     public Billeteras actualizarBilletera(@PathVariable Long id, @RequestBody Billeteras billetera) {
-        return service.actualizarBilleteras(id, billetera);
+        return service.actualizarBilletera(id, billetera);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarBilletera(@PathVariable Long id) {
-        service.eliminarbilleteras(id);
+        service.eliminarBilletera(id);
     }
 }

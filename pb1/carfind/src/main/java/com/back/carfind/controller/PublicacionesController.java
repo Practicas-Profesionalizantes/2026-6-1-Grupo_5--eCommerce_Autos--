@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.Publicaciones;
-import com.back.carfind.service.PublicacionesService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.Publicaciones;
+import com.back.carfind.service.PublicacionesService;
 
 @RestController
 @RequestMapping("/api/publicaciones")

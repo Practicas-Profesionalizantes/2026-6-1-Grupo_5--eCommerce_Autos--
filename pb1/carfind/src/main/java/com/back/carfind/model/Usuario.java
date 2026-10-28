@@ -1,136 +1,172 @@
 package com.back.carfind.model;
-import java.time.LocalDate;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name = "usuarios")
 public class Usuario {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
-@Column(nullable = false)
-private String nombre;
-@Column
-private String email;
-@Id
-@Column
-private Long dni;
-@Column
-private String password;
-@Column
-private Integer telefono;
-@Column 
-private Double reputacion;
-@Column
-private Double score_riesgo;
-@Column 
-private Boolean verificado;
-@Column
-private LocalDate fecha_creacion;
-@Column
-private Integer total_compras;
-@Column 
-private Integer total_ventas;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
+    @Column(name = "nombre", nullable = false, length = 100)
+    private String nombre;
 
+    @Column(name = "email", nullable = false, length = 120)
+    private String email;
 
-public Long getId() {
-return id;
-}
-public void setId(Long id) {
-this.id = id;
-}
+    @Column(name = "dni", nullable = false, length = 8)
+    private String dni;
 
+    @Column(name = "password_hash", nullable = false, length = 150)
+    private String passwordHash;
 
-public String getNombre() {
-return nombre;
-}
-public void setNombre(String nombre) {
-this.nombre = nombre;
-}
+    @Column(name = "telefono", nullable = false, length = 20)
+    private String telefono;
 
+    @Column(name = "reputacion")
+    private BigDecimal reputacion;
 
-public String getEmail() {
-return email;
-}
-public void setEmail(String email) {
-this.email = email;
-}
+    @Column(name = "score_riesgo")
+    private BigDecimal scoreRiesgo;
 
+    @Column(name = "verificacion")
+    private String verificacion;
 
-public Long getDni() {
-return dni;
-}
-public void setDni(Long dni) {
+    @Column(name = "fecha_creacion", nullable = false)
+    private LocalDateTime fechaCreacion;
 
-this.dni = dni;
-}
+    @Column(name = "total_compras")
+    private Integer totalCompras;
 
-public String getPassword() {
-return password;
-}//HAY Q ARREGLAR TIPO DE DATO
-public void setPassword(String password) {
+    @Column(name = "total_ventas")
+    private Integer totalVentas;
 
-this.password=password;
-}
+    @Column(name = "eliminado")
+    private Boolean eliminado;
 
-public Integer getTelefono() {
-return telefono;
-}
-public void setTelefono(Integer telefono) {
+    @Column(name = "fecha_eliminacion")
+    private LocalDateTime fechaEliminacion;
 
-this.telefono = telefono;
-}
+    public Long getId() {
+        return id;
+    }
 
-public Double getReputacion() {
-return reputacion;
-}
-public void setReputacion(Double reputacion) {
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-this.reputacion = reputacion;
-}
+    public String getNombre() {
+        return nombre;
+    }
 
-public Double getScore_riesgo() {
-return score_riesgo;
-}
-public void setScore_riesgo(Double score_riesgo) {
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-this.score_riesgo = score_riesgo;
-}
+    public String getEmail() {
+        return email;
+    }
 
-public Boolean getVerificado() {
-return verificado;
-}
-public void setVerificado(Boolean verificado) {
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-this.verificado = verificado;
-}
+    public String getDni() {
+        return dni;
+    }
 
-public LocalDate getFecha_creacion() {
-return fecha_creacion;
-}
-public void setFecha_creacion(LocalDate fecha_creacion) {
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
-this.fecha_creacion= fecha_creacion;
-}
+    public String getPasswordHash() {
+        return passwordHash;
+    }
 
-public Integer getTotal_compras() {
-return total_compras;
-}
-public void setTotal_compras(Integer total_compras) {
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
 
-this.total_compras = total_compras;
-}
+    public String getTelefono() {
+        return telefono;
+    }
 
-public Integer getTotal_ventas() {
-return total_ventas;
-}
-public void setTotal_ventas(Integer total_ventas) {
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-this.total_ventas = total_ventas;
-}
+    public BigDecimal getReputacion() {
+        return reputacion;
+    }
 
+    public void setReputacion(BigDecimal reputacion) {
+        this.reputacion = reputacion;
+    }
+
+    public BigDecimal getScoreRiesgo() {
+        return scoreRiesgo;
+    }
+
+    public void setScoreRiesgo(BigDecimal scoreRiesgo) {
+        this.scoreRiesgo = scoreRiesgo;
+    }
+
+    public String getVerificacion() {
+        return verificacion;
+    }
+
+    public void setVerificacion(String verificacion) {
+        this.verificacion = verificacion;
+    }
+
+    public LocalDateTime getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Integer getTotalCompras() {
+        return totalCompras;
+    }
+
+    public void setTotalCompras(Integer totalCompras) {
+        this.totalCompras = totalCompras;
+    }
+
+    public Integer getTotalVentas() {
+        return totalVentas;
+    }
+
+    public void setTotalVentas(Integer totalVentas) {
+        this.totalVentas = totalVentas;
+    }
+
+    public Boolean getEliminado() {
+        return eliminado;
+    }
+
+    public void setEliminado(Boolean eliminado) {
+        this.eliminado = eliminado;
+    }
+
+    public LocalDateTime getFechaEliminacion() {
+        return fechaEliminacion;
+    }
+
+    public void setFechaEliminacion(LocalDateTime fechaEliminacion) {
+        this.fechaEliminacion = fechaEliminacion;
+    }
 }

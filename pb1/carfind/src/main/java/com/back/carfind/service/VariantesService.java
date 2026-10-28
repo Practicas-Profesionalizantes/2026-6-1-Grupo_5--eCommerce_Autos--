@@ -20,33 +20,22 @@ public class VariantesService {
 
     public Variantes obtenerVariante(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Variante no encontrada"
-                ));
+                .orElseThrow(() -> new RuntimeException("Variante no encontrada"));
     }
 
     public List<Variantes> listarVariantes() {
         return repository.findAll();
     }
 
-    public Variantes actualizarVariante(
-            Long id,
-            Variantes datos) {
-
+    public Variantes actualizarVariante(Long id, Variantes datos) {
         Variantes variante = obtenerVariante(id);
-
-        variante.setPublicacion_id(
-                datos.getPublicacion_id()
-        );
-
+        variante.setPublicacionId(datos.getPublicacionId());
         variante.setNombre(datos.getNombre());
-
         return repository.save(variante);
     }
 
     public void eliminarVariante(Long id) {
         Variantes variante = obtenerVariante(id);
-
         repository.delete(variante);
     }
 }

@@ -1,78 +1,83 @@
 package com.back.carfind.model;
+
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
-public class PromocionesBancarias{
+@Table(name = "promociones_bancarias")
+public class PromocionesBancarias {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_promociones_bancarias;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_banco;
+    @Column(name = "id_banco")
+    private Long bancoId;
 
-@Column
-private String tarjeta;
+    @Column(name = "tarjeta", length = 20)
+    private String tarjeta;
 
-@Column
-private Integer cuotas;
+    @Column(name = "cuotas")
+    private Integer cuotas;
 
-@Column
-private Float interes;
+    @Column(name = "interes")
+    private BigDecimal interes;
 
-@Column 
-private Boolean activa;
+    @Column(name = "activa")
+    private Boolean activa;
 
-public Long getId_promociones_bancarias() {
-	return id_promociones_bancarias;
-}
+    public Long getId() {
+        return id;
+    }
 
-public void setId_promociones_bancarias(Long id_promociones_bancarias) {
-	this.id_promociones_bancarias = id_promociones_bancarias;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public Long getId_banco() {
-	return id_banco;
-}
+    public Long getBancoId() {
+        return bancoId;
+    }
 
-public void setId_banco(Long id_banco) {
-	this.id_banco = id_banco;
-}
+    public void setBancoId(Long bancoId) {
+        this.bancoId = bancoId;
+    }
 
-public String getTarjeta() {
-	return tarjeta;
-}
+    public String getTarjeta() {
+        return tarjeta;
+    }
 
-public void setTarjeta(String tarjeta) {
-	this.tarjeta = tarjeta;
-}
+    public void setTarjeta(String tarjeta) {
+        this.tarjeta = tarjeta;
+    }
 
-public Integer getCuotas() {
-	return cuotas;
-}
+    public Integer getCuotas() {
+        return cuotas;
+    }
 
-public void setCuotas(Integer cuotas) {
-	this.cuotas = cuotas;
-}
+    public void setCuotas(Integer cuotas) {
+        this.cuotas = cuotas;
+    }
 
-public Float getInteres() {
-	return interes;
-}
+    public BigDecimal getInteres() {
+        return interes;
+    }
 
-public void setInteres(Float interes) {
-	this.interes = interes;
-}
+    public void setInteres(BigDecimal interes) {
+        this.interes = interes;
+    }
 
-public Boolean getActiva() {
-	return activa;
-}
+    public Boolean getActiva() {
+        return activa;
+    }
 
-public void setActiva(Boolean activa) {
-	this.activa = activa;
-}
-
+    public void setActiva(Boolean activa) {
+        this.activa = activa;
+    }
 }

@@ -1,80 +1,84 @@
 package com.back.carfind.model;
-import java.time.LocalDate;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Entity
-public class Movimientos{
+@Table(name = "movimientos")
+public class Movimientos {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_movimientos;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id_usuario;
+    @Column(name = "usuario_id")
+    private Long usuarioId;
 
-@Column
-private String tipo;
+    @Column(name = "tipo")
+    private String tipo;
 
-@Column
-private Float monto;
+    @Column(name = "monto")
+    private BigDecimal monto;
 
-@Column 
-private String descripcion;
+    @Column(name = "descripcion", columnDefinition = "TEXT")
+    private String descripcion;
 
-@Column
-private LocalDate fecha;
+    @Column(name = "fecha", nullable = false)
+    private LocalDateTime fecha;
 
-public Long getId_movimientos() {
-	return id_movimientos;
-}
+    public Long getId() {
+        return id;
+    }
 
-public void setId_movimientos(Long id_movimientos) {
-	this.id_movimientos = id_movimientos;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public Long getId_usuario() {
-	return id_usuario;
-}
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
 
-public void setId_usuario(Long id_usuario) {
-	this.id_usuario = id_usuario;
-}
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 
-public String getTipo() {
-	return tipo;
-}
+    public String getTipo() {
+        return tipo;
+    }
 
-public void setTipo(String tipo) {
-	this.tipo = tipo;
-}
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
-public Float getMonto() {
-	return monto;
-}
+    public BigDecimal getMonto() {
+        return monto;
+    }
 
-public void setMonto(Float monto) {
-	this.monto = monto;
-}
+    public void setMonto(BigDecimal monto) {
+        this.monto = monto;
+    }
 
-public String getDescripcion() {
-	return descripcion;
-}
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-public void setDescripcion(String descripcion) {
-	this.descripcion = descripcion;
-}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-public LocalDate getFecha() {
-	return fecha;
-}
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
 
-public void setFecha(LocalDate fecha) {
-	this.fecha = fecha;
-}
-
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
+    }
 }

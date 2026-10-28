@@ -14,47 +14,32 @@ public class TarjetasUsuarioService {
     @Autowired
     private TarjetasUsuarioRepository repository;
 
-    public TarjetasUsuario crearTarjetaUsuario(
-            TarjetasUsuario tarjetaUsuario) {
-
+    public TarjetasUsuario crearTarjetaUsuario(TarjetasUsuario tarjetaUsuario) {
         return repository.save(tarjetaUsuario);
     }
 
     public TarjetasUsuario obtenerTarjetaUsuario(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException(
-                        "Tarjeta de usuario no encontrada"
-                ));
+                .orElseThrow(() -> new RuntimeException("Tarjeta de usuario no encontrada"));
     }
 
     public List<TarjetasUsuario> listarTarjetasUsuario() {
         return repository.findAll();
     }
 
-    public TarjetasUsuario actualizarTarjetaUsuario(
-            Long id,
-            TarjetasUsuario datos) {
-
-        TarjetasUsuario tarjetaUsuario =
-                obtenerTarjetaUsuario(id);
-
+    public TarjetasUsuario actualizarTarjetaUsuario(Long id, TarjetasUsuario datos) {
+        TarjetasUsuario tarjetaUsuario = obtenerTarjetaUsuario(id);
+        tarjetaUsuario.setUsuarioId(datos.getUsuarioId());
         tarjetaUsuario.setMarca(datos.getMarca());
         tarjetaUsuario.setUltimos4(datos.getUltimos4());
         tarjetaUsuario.setToken(datos.getToken());
-        tarjetaUsuario.setVencimiento_mes(
-                datos.getVencimiento_mes()
-        );
-        tarjetaUsuario.setVencmiento_anio(
-                datos.getVencmiento_anio()
-        );
-
+        tarjetaUsuario.setVencimientoMes(datos.getVencimientoMes());
+        tarjetaUsuario.setVencimientoAnio(datos.getVencimientoAnio());
         return repository.save(tarjetaUsuario);
     }
 
     public void eliminarTarjetaUsuario(Long id) {
-        TarjetasUsuario tarjetaUsuario =
-                obtenerTarjetaUsuario(id);
-
+        TarjetasUsuario tarjetaUsuario = obtenerTarjetaUsuario(id);
         repository.delete(tarjetaUsuario);
     }
 }

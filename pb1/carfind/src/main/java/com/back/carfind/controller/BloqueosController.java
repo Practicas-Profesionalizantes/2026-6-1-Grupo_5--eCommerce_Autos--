@@ -1,10 +1,11 @@
 package com.back.carfind.controller;
 
-import com.back.carfind.model.Bloqueos;
-import com.back.carfind.service.BloqueosService;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.back.carfind.model.Bloqueos;
+import com.back.carfind.service.BloqueosService;
 
 @RestController
 @RequestMapping("/api/bloqueos")
@@ -19,12 +20,12 @@ public class BloqueosController {
 
     @PostMapping
     public Bloqueos crearBloqueo(@RequestBody Bloqueos bloqueo) {
-        return service.crearBloqueos(bloqueo);
+        return service.crearBloqueo(bloqueo);
     }
 
-    @GetMapping("/{id}")
-    public Bloqueos obtenerBloqueo(@PathVariable Long id) {
-        return service.obtenerBloqueos(id);
+    @GetMapping("/{usuarioId}/{usuarioBloqueadoId}")
+    public Bloqueos obtenerBloqueo(@PathVariable Long usuarioId, @PathVariable Long usuarioBloqueadoId) {
+        return service.obtenerBloqueo(usuarioId, usuarioBloqueadoId);
     }
 
     @GetMapping
@@ -32,13 +33,8 @@ public class BloqueosController {
         return service.listarBloqueos();
     }
 
-    @PutMapping("/{id}")
-    public Bloqueos actualizarBloqueo(@PathVariable Long id, @RequestBody Bloqueos bloqueo) {
-        return service.actualizarBloqueos(id, bloqueo);
-    }
-
-    @DeleteMapping("/{id}")
-    public void eliminarBloqueo(@PathVariable Long id) {
-        service.eliminarbloqueos(id);
+    @DeleteMapping("/{usuarioId}/{usuarioBloqueadoId}")
+    public void eliminarBloqueo(@PathVariable Long usuarioId, @PathVariable Long usuarioBloqueadoId) {
+        service.eliminarBloqueo(usuarioId, usuarioBloqueadoId);
     }
 }
