@@ -1,6 +1,4 @@
 package com.back.carfind.model;
-
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -8,88 +6,86 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "cuotas")
-public class Cuotas {
+public class Cuotas{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_cuotas;
 
-    @Column(name = "pago_cuota_id")
-    private Long pagoCuotaId;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_pago_cuotas;
 
-    @Column(name = "numero_cuota")
-    private Integer numeroCuota;
+@Column
+private Integer numero_cuota;
 
-    @Column(name = "monto")
-    private BigDecimal monto;
+@Column
+private Float monto;
 
-    @Column(name = "estado")
-    private String estado;
+@Column
+private String estado;
 
-    @Column(name = "fecha_vencimiento")
-    private LocalDate fechaVencimiento;
+@Column 
+private LocalDate fecha_vencimiento;
 
-    @Column(name = "fecha_pago")
-    private LocalDate fechaPago;
+@Column
+private LocalDate fecha_pago;
 
-    public Long getId() {
-        return id;
-    }
+public Long getId_cuotas() {
+	return id_cuotas;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public void setId_cuotas(Long id_cuotas) {
+	this.id_cuotas = id_cuotas;
+}
 
-    public Long getPagoCuotaId() {
-        return pagoCuotaId;
-    }
+public Long getId_pago_cuotas() {
+	return id_pago_cuotas;
+}
 
-    public void setPagoCuotaId(Long pagoCuotaId) {
-        this.pagoCuotaId = pagoCuotaId;
-    }
+public void setId_pago_cuotas(Long id_pago_cuotas) {
+	this.id_pago_cuotas = id_pago_cuotas;
+}
 
-    public Integer getNumeroCuota() {
-        return numeroCuota;
-    }
+public Integer getNumero_cuota() {
+	return numero_cuota;
+}
 
-    public void setNumeroCuota(Integer numeroCuota) {
-        this.numeroCuota = numeroCuota;
-    }
+public void setNumero_cuota(Integer numero_cuota) {
+	this.numero_cuota = numero_cuota;
+}
 
-    public BigDecimal getMonto() {
-        return monto;
-    }
+public Float getMonto() {
+	return monto;
+}
 
-    public void setMonto(BigDecimal monto) {
-        this.monto = monto;
-    }
+public void setMonto(Float monto) {
+	this.monto = monto;
+}
 
-    public String getEstado() {
-        return estado;
-    }
+public String getEstado() {
+	return estado;
+}
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+public void setEstado(String estado) {
+	this.estado = estado;
+}
 
-    public LocalDate getFechaVencimiento() {
-        return fechaVencimiento;
-    }
+public LocalDate getFecha_vencimiento() {
+	return fecha_vencimiento;
+}
 
-    public void setFechaVencimiento(LocalDate fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
-    }
+public void setFecha_vencimiento(LocalDate fecha_vencimiento) {
+	this.fecha_vencimiento = fecha_vencimiento;
+}
 
-    public LocalDate getFechaPago() {
-        return fechaPago;
-    }
+public LocalDate getFecha_pago() {
+	return fecha_pago;
+}
 
-    public void setFechaPago(LocalDate fechaPago) {
-        this.fechaPago = fechaPago;
-    }
+public void setFecha_pago(LocalDate fecha_pago) {
+	this.fecha_pago = fecha_pago;
+}
+
 }

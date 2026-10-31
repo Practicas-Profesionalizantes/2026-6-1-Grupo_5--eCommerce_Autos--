@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.Notificaciones;
 import com.back.carfind.service.NotificacionesService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/notificaciones")

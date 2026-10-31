@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.Ofertas;
 import com.back.carfind.service.OfertasService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/ofertas")

@@ -20,24 +20,43 @@ public class PreguntasService {
 
     public Preguntas obtenerPregunta(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Pregunta no encontrada"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Pregunta no encontrada"
+                ));
     }
 
     public List<Preguntas> listarPreguntas() {
         return repository.findAll();
     }
 
-    public Preguntas actualizarPregunta(Long id, Preguntas datos) {
+    public Preguntas actualizarPregunta(
+            Long id,
+            Preguntas datos) {
+
         Preguntas pregunta = obtenerPregunta(id);
-        pregunta.setPublicacionId(datos.getPublicacionId());
-        pregunta.setUsuarioId(datos.getUsuarioId());
-        pregunta.setPregunta(datos.getPregunta());
-        pregunta.setFecha(datos.getFecha());
+
+        pregunta.setId_publicacion(
+                datos.getId_publicacion()
+        );
+
+        pregunta.setId_usaurio(
+                datos.getId_usaurio()
+        );
+
+        pregunta.setDescripcion(
+                datos.getDescripcion()
+        );
+
+        pregunta.setFecha_pregunta(
+                datos.getFecha_pregunta()
+        );
+
         return repository.save(pregunta);
     }
 
     public void eliminarPregunta(Long id) {
         Preguntas pregunta = obtenerPregunta(id);
+
         repository.delete(pregunta);
     }
 }

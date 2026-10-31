@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.ActividadUsuario;
 import com.back.carfind.service.ActividadUsuarioService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/actividades-usuarios")
@@ -29,8 +28,8 @@ public class ActividadUsuarioController {
     }
 
     @GetMapping
-    public List<ActividadUsuario> listarActividadesUsuario() {
-        return service.listarActividadesUsuario();
+    public List<ActividadUsuario> listarActividadUsuario() {
+        return service.listarActividadUsuario();
     }
 
     @PutMapping("/{id}")
@@ -40,6 +39,6 @@ public class ActividadUsuarioController {
 
     @DeleteMapping("/{id}")
     public void eliminarActividadUsuario(@PathVariable Long id) {
-        service.eliminarActividadUsuario(id);
+        service.eliminaractividadUsuario(id);
     }
 }

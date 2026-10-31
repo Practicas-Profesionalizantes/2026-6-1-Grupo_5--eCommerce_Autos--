@@ -14,27 +14,41 @@ public class TransmisionesService {
     @Autowired
     private TransmisionesRepository repository;
 
-    public Transmisiones crearTransmision(Transmisiones transmision) {
+    public Transmisiones crearTransmision(
+            Transmisiones transmision) {
+
         return repository.save(transmision);
     }
 
     public Transmisiones obtenerTransmision(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Transmision no encontrada"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Transmisión no encontrada"
+                ));
     }
 
     public List<Transmisiones> listarTransmisiones() {
         return repository.findAll();
     }
 
-    public Transmisiones actualizarTransmision(Long id, Transmisiones datos) {
-        Transmisiones transmision = obtenerTransmision(id);
-        transmision.setNombre(datos.getNombre());
+    public Transmisiones actualizarTransmision(
+            Long id,
+            Transmisiones datos) {
+
+        Transmisiones transmision =
+                obtenerTransmision(id);
+
+        transmision.setNombre_transmision(
+                datos.getNombre_transmision()
+        );
+
         return repository.save(transmision);
     }
 
     public void eliminarTransmision(Long id) {
-        Transmisiones transmision = obtenerTransmision(id);
+        Transmisiones transmision =
+                obtenerTransmision(id);
+
         repository.delete(transmision);
     }
 }

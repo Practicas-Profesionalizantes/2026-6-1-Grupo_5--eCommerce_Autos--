@@ -1,128 +1,125 @@
 package com.back.carfind.model;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "pagos_cuotas")
-public class PagosCuotas {
+public class PagosCuotas{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_pagos_cuotas;
 
-    @Column(name = "transaccion_id", nullable = false)
-    private Long transaccionId;
+public Long getId_pagos_cuotas() {
+	return id_pagos_cuotas;
+}
 
-    @Column(name = "plan_id", nullable = false)
-    private Long planId;
+public void setId_pagos_cuotas(Long id_pagos_cuotas) {
+	this.id_pagos_cuotas = id_pagos_cuotas;
+}
 
-    @Column(name = "cantidad_cuotas", nullable = false)
-    private Integer cantidadCuotas;
+public Long getId_pago() {
+	return id_pago;
+}
 
-    @Column(name = "interes_aplicado")
-    private BigDecimal interesAplicado;
+public void setId_pago(Long id_pago) {
+	this.id_pago = id_pago;
+}
 
-    @Column(name = "monto_original", nullable = false)
-    private BigDecimal montoOriginal;
+public Long getId_plan() {
+	return id_plan;
+}
 
-    @Column(name = "monto_total", nullable = false)
-    private BigDecimal montoTotal;
+public void setId_plan(Long id_plan) {
+	this.id_plan = id_plan;
+}
 
-    @Column(name = "monto_cuota", nullable = false)
-    private BigDecimal montoCuota;
+public Integer getCantidad_cuotas() {
+	return cantidad_cuotas;
+}
 
-    @Column(name = "moneda", length = 10)
-    private String moneda;
+public void setCantidad_cuotas(Integer cantidad_cuotas) {
+	this.cantidad_cuotas = cantidad_cuotas;
+}
 
-    @Column(name = "fecha_inicio", nullable = false)
-    private LocalDateTime fechaInicio;
+public Float getInteres_aplicado() {
+	return interes_aplicado;
+}
 
-    public Long getId() {
-        return id;
-    }
+public void setInteres_aplicado(Float interes_aplicado) {
+	this.interes_aplicado = interes_aplicado;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public Float getMonto_original() {
+	return monto_original;
+}
 
-    public Long getTransaccionId() {
-        return transaccionId;
-    }
+public void setMonto_original(Float monto_original) {
+	this.monto_original = monto_original;
+}
 
-    public void setTransaccionId(Long transaccionId) {
-        this.transaccionId = transaccionId;
-    }
+public Float getMonto_total() {
+	return monto_total;
+}
 
-    public Long getPlanId() {
-        return planId;
-    }
+public void setMonto_total(Float monto_total) {
+	this.monto_total = monto_total;
+}
 
-    public void setPlanId(Long planId) {
-        this.planId = planId;
-    }
+public Float getMonto_cuota() {
+	return monto_cuota;
+}
 
-    public Integer getCantidadCuotas() {
-        return cantidadCuotas;
-    }
+public void setMonto_cuota(Float monto_cuota) {
+	this.monto_cuota = monto_cuota;
+}
 
-    public void setCantidadCuotas(Integer cantidadCuotas) {
-        this.cantidadCuotas = cantidadCuotas;
-    }
+public String getMoneda() {
+	return moneda;
+}
 
-    public BigDecimal getInteresAplicado() {
-        return interesAplicado;
-    }
+public void setMoneda(String moneda) {
+	this.moneda = moneda;
+}
 
-    public void setInteresAplicado(BigDecimal interesAplicado) {
-        this.interesAplicado = interesAplicado;
-    }
+public LocalDate getFecha_inicio() {
+	return fecha_inicio;
+}
 
-    public BigDecimal getMontoOriginal() {
-        return montoOriginal;
-    }
+public void setFecha_inicio(LocalDate fecha_inicio) {
+	this.fecha_inicio = fecha_inicio;
+}
 
-    public void setMontoOriginal(BigDecimal montoOriginal) {
-        this.montoOriginal = montoOriginal;
-    }
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_pago;
 
-    public BigDecimal getMontoTotal() {
-        return montoTotal;
-    }
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_plan;
 
-    public void setMontoTotal(BigDecimal montoTotal) {
-        this.montoTotal = montoTotal;
-    }
+@Column
+private Integer cantidad_cuotas;
 
-    public BigDecimal getMontoCuota() {
-        return montoCuota;
-    }
+@Column
+private Float interes_aplicado;
 
-    public void setMontoCuota(BigDecimal montoCuota) {
-        this.montoCuota = montoCuota;
-    }
+@Column 
+private Float monto_original;
 
-    public String getMoneda() {
-        return moneda;
-    }
+@Column 
+private Float monto_total;
 
-    public void setMoneda(String moneda) {
-        this.moneda = moneda;
-    }
+@Column 
+private Float monto_cuota;
 
-    public LocalDateTime getFechaInicio() {
-        return fechaInicio;
-    }
+@Column 
+private String moneda;
 
-    public void setFechaInicio(LocalDateTime fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
+@Column 
+private LocalDate fecha_inicio;
+
 }

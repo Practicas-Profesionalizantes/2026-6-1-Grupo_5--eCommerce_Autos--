@@ -1,47 +1,38 @@
 package com.back.carfind.service;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.back.carfind.model.Direcciones;
 import com.back.carfind.repository.DireccionesRepository;
-
 @Service
 public class DireccionesService {
 
-    @Autowired
-    private DireccionesRepository repository;
+@Autowired
+private DireccionesRepository repository;
+public Direcciones crearDirecciones(Direcciones direcciones) {
+return repository.save(direcciones);
+}
+public Direcciones obtenerDirecciones(Long id) {
+return repository.findById(id)
+.orElseThrow(() -> new RuntimeException("Direcciones no encontradas"));
 
-    public Direcciones crearDireccion(Direcciones direccion) {
-        return repository.save(direccion);
-    }
+}
+public List<Direcciones> listarDirecciones() {
+return repository.findAll();
+}
+public Direcciones actualizarDirecciones(Long id, Direcciones datos) {
+Direcciones direcciones = obtenerDirecciones(id);
+direcciones.setId_direccion(datos.getId_direccion());
+direcciones.setPais(datos.getPais());
+direcciones.setProvincia(datos.getProvincia());
+direcciones.setCiudad(datos.getCiudad());
+direcciones.setDireccion(datos.getDireccion());
+direcciones.setTipo(datos.getTipo());
+direcciones.setEs_principal(datos.getEs_principal());
 
-    public Direcciones obtenerDireccion(Long id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Direccion no encontrada"));
-    }
-
-    public List<Direcciones> listarDirecciones() {
-        return repository.findAll();
-    }
-
-    public Direcciones actualizarDireccion(Long id, Direcciones datos) {
-        Direcciones direccion = obtenerDireccion(id);
-        direccion.setUsuarioId(datos.getUsuarioId());
-        direccion.setPais(datos.getPais());
-        direccion.setProvincia(datos.getProvincia());
-        direccion.setCiudad(datos.getCiudad());
-        direccion.setDireccion(datos.getDireccion());
-        direccion.setTipo(datos.getTipo());
-        direccion.setEsPrincipal(datos.getEsPrincipal());
-        direccion.setFechaCreacion(datos.getFechaCreacion());
-        return repository.save(direccion);
-    }
-
-    public void eliminarDireccion(Long id) {
-        Direcciones direccion = obtenerDireccion(id);
-        repository.delete(direccion);
-    }
+return repository.save(direcciones);
+}
+public void eliminarDirecciones(Long id) {
+repository.deleteById(id);
+}
 }

@@ -1,83 +1,67 @@
 package com.back.carfind.model;
-
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "promociones")
 public class Promociones {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_publicacion;
 
-    @Column(name = "publicacion_id", nullable = false)
-    private Long publicacionId;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_tipo_promocion;
 
-    @Column(name = "tipo_promocion_id", nullable = false)
-    private Long tipoPromocionId;
+@Column
+private Integer fecha_inicio;
 
-    @Column(name = "fecha_inicio", nullable = false)
-    private LocalDateTime fechaInicio;
+@Column
+private Integer fehca_fin;
 
-    @Column(name = "fecha_fin", nullable = false)
-    private LocalDateTime fechaFin;
+@Column 
+private String estado;
 
-    @Column(name = "estado")
-    private String estado;
+public Long getId_publicacion() {
+	return id_publicacion;
+}
 
-    public Long getId() {
-        return id;
-    }
+public void setId_publicacion(Long id_publicacion) {
+	this.id_publicacion = id_publicacion;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public Long getId_tipo_promocion() {
+	return id_tipo_promocion;
+}
 
-    public Long getPublicacionId() {
-        return publicacionId;
-    }
+public void setId_tipo_promocion(Long id_tipo_promocion) {
+	this.id_tipo_promocion = id_tipo_promocion;
+}
 
-    public void setPublicacionId(Long publicacionId) {
-        this.publicacionId = publicacionId;
-    }
+public Integer getFecha_inicio() {
+	return fecha_inicio;
+}
 
-    public Long getTipoPromocionId() {
-        return tipoPromocionId;
-    }
+public void setFecha_inicio(Integer fecha_inicio) {
+	this.fecha_inicio = fecha_inicio;
+}
 
-    public void setTipoPromocionId(Long tipoPromocionId) {
-        this.tipoPromocionId = tipoPromocionId;
-    }
+public Integer getFehca_fin() {
+	return fehca_fin;
+}
 
-    public LocalDateTime getFechaInicio() {
-        return fechaInicio;
-    }
+public void setFehca_fin(Integer fehca_fin) {
+	this.fehca_fin = fehca_fin;
+}
 
-    public void setFechaInicio(LocalDateTime fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
+public String getEstado() {
+	return estado;
+}
 
-    public LocalDateTime getFechaFin() {
-        return fechaFin;
-    }
+public void setEstado(String estado) {
+	this.estado = estado;
+}
 
-    public void setFechaFin(LocalDateTime fechaFin) {
-        this.fechaFin = fechaFin;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
 }

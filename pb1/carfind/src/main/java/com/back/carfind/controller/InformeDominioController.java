@@ -1,45 +1,44 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
+import com.back.carfind.model.Informe_dominio;
+import com.back.carfind.service.Informe_dominioService;
 import org.springframework.web.bind.annotation.*;
 
-import com.back.carfind.model.InformeDominio;
-import com.back.carfind.service.InformeDominioService;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/informes-dominio")
 @CrossOrigin(origins = "*")
 public class InformeDominioController {
 
-    private final InformeDominioService service;
+    private final Informe_dominioService service;
 
-    public InformeDominioController(InformeDominioService service) {
+    public InformeDominioController(Informe_dominioService service) {
         this.service = service;
     }
 
     @PostMapping
-    public InformeDominio crearInformeDominio(@RequestBody InformeDominio informeDominio) {
-        return service.crearInformeDominio(informeDominio);
+    public Informe_dominio crearInformeDominio(@RequestBody Informe_dominio informeDominio) {
+        return service.crearInforme(informeDominio);
     }
 
     @GetMapping("/{id}")
-    public InformeDominio obtenerInformeDominio(@PathVariable Long id) {
-        return service.obtenerInformeDominio(id);
+    public Informe_dominio obtenerInformeDominio(@PathVariable Long id) {
+        return service.obtenerInforme(id);
     }
 
     @GetMapping
-    public List<InformeDominio> listarInformesDominio() {
-        return service.listarInformesDominio();
+    public List<Informe_dominio> listarInformesDominio() {
+        return service.listarInformes();
     }
 
     @PutMapping("/{id}")
-    public InformeDominio actualizarInformeDominio(@PathVariable Long id, @RequestBody InformeDominio informeDominio) {
-        return service.actualizarInformeDominio(id, informeDominio);
+    public Informe_dominio actualizarInformeDominio(@PathVariable Long id, @RequestBody Informe_dominio informeDominio) {
+        return service.actualizarInforme(id, informeDominio);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarInformeDominio(@PathVariable Long id) {
-        service.eliminarInformeDominio(id);
+        service.eliminarInforme(id);
     }
 }

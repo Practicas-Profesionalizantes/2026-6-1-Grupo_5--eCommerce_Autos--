@@ -1,73 +1,57 @@
 package com.back.carfind.model;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "pagos_promocion")
 public class PagosPromocion {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_pagos_promocion;
 
-    @Column(name = "promocion_id")
-    private Long promocionId;
+@Column
+private Float monto;
 
-    @Column(name = "monto")
-    private BigDecimal monto;
+@Column
+private String estado;
 
-    @Column(name = "estado")
-    private String estado;
+@Column
+private LocalDate fecha;
 
-    @Column(name = "fecha", nullable = false)
-    private LocalDateTime fecha;
+public Long getId_pagos_promocion() {
+	return id_pagos_promocion;
+}
 
-    public Long getId() {
-        return id;
-    }
+public void setId_pagos_promocion(Long id_pagos_promocion) {
+	this.id_pagos_promocion = id_pagos_promocion;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public Float getMonto() {
+	return monto;
+}
 
-    public Long getPromocionId() {
-        return promocionId;
-    }
+public void setMonto(Float monto) {
+	this.monto = monto;
+}
 
-    public void setPromocionId(Long promocionId) {
-        this.promocionId = promocionId;
-    }
+public String getEstado() {
+	return estado;
+}
 
-    public BigDecimal getMonto() {
-        return monto;
-    }
+public void setEstado(String estado) {
+	this.estado = estado;
+}
 
-    public void setMonto(BigDecimal monto) {
-        this.monto = monto;
-    }
+public LocalDate getFecha() {
+	return fecha;
+}
 
-    public String getEstado() {
-        return estado;
-    }
+public void setFecha(LocalDate fecha) {
+	this.fecha = fecha;
+}
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
-    }
 }

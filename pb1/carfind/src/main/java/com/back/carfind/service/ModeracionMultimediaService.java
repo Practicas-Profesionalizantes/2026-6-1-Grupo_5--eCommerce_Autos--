@@ -14,30 +14,41 @@ public class ModeracionMultimediaService {
     @Autowired
     private ModeracionMultimediaRepository repository;
 
-    public ModeracionMultimedia crearModeracionMultimedia(ModeracionMultimedia moderacionMultimedia) {
-        return repository.save(moderacionMultimedia);
+    public ModeracionMultimedia crearModeracion(
+            ModeracionMultimedia moderacion) {
+
+        return repository.save(moderacion);
     }
 
-    public ModeracionMultimedia obtenerModeracionMultimedia(Long id) {
+    public ModeracionMultimedia obtenerModeracion(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Moderacion no encontrada"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Moderación multimedia no encontrada"
+                ));
     }
 
-    public List<ModeracionMultimedia> listarModeracionesMultimedia() {
+    public List<ModeracionMultimedia> listarModeraciones() {
         return repository.findAll();
     }
 
-    public ModeracionMultimedia actualizarModeracionMultimedia(Long id, ModeracionMultimedia datos) {
-        ModeracionMultimedia moderacionMultimedia = obtenerModeracionMultimedia(id);
-        moderacionMultimedia.setMultimediaId(datos.getMultimediaId());
-        moderacionMultimedia.setEstado(datos.getEstado());
-        moderacionMultimedia.setMotivo(datos.getMotivo());
-        moderacionMultimedia.setFecha(datos.getFecha());
-        return repository.save(moderacionMultimedia);
+    public ModeracionMultimedia actualizarModeracion(
+            Long id,
+            ModeracionMultimedia datos) {
+
+        ModeracionMultimedia moderacion =
+                obtenerModeracion(id);
+
+        moderacion.setEstado(datos.getEstado());
+        moderacion.setMotivo(datos.getMotivo());
+        moderacion.setFecha(datos.getFecha());
+
+        return repository.save(moderacion);
     }
 
-    public void eliminarModeracionMultimedia(Long id) {
-        ModeracionMultimedia moderacionMultimedia = obtenerModeracionMultimedia(id);
-        repository.delete(moderacionMultimedia);
+    public void eliminarModeracion(Long id) {
+        ModeracionMultimedia moderacion =
+                obtenerModeracion(id);
+
+        repository.delete(moderacion);
     }
 }

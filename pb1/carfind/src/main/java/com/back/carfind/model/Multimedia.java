@@ -1,83 +1,68 @@
 package com.back.carfind.model;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.time.LocalDate;
+
 
 @Entity
-@Table(name = "multimedia")
 public class Multimedia {
+	
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_multimedia;
+@Column
+private Long id_publicacion;
+@Column
+private String url;
+@Column
+private String tipo;
+@Column
+private Integer orden;
+@Column
+private LocalDate fecha_creacion;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+public Long getId_multimedia() {
+	return id_multimedia;
+}
+public void setId_multimedia(Long id_multimedia) {
+	this.id_multimedia = id_multimedia;
+}
+public Long getId_publicacion() {
+	return id_publicacion;
+}
+public void setId_publicacion(Long id_publicacion) {
+	this.id_publicacion = id_publicacion;
+}
+public String getUrl() {
+	return url;
+}
+public void setUrl(String url) {
+	this.url = url;
+}
+public String getTipo() {
+	return tipo;
+}
+public void setTipo(String tipo) {
+	this.tipo = tipo;
+}
+public Integer getOrden() {
+	return orden;
+}
+public void setOrden(Integer orden) {
+	this.orden = orden;
+}
+public LocalDate getFecha_creacion() {
+	return fecha_creacion;
+}
+public void setFecha_creacion(LocalDate fecha_creacion) {
+	this.fecha_creacion = fecha_creacion;
+}
 
-    @Column(name = "publicacion_id", nullable = false)
-    private Long publicacionId;
 
-    @Column(name = "url", nullable = false, columnDefinition = "TEXT")
-    private String url;
 
-    @Column(name = "tipo", nullable = false, length = 10)
-    private String tipo;
 
-    @Column(name = "orden")
-    private Integer orden;
-
-    @Column(name = "fecha_creacion", nullable = false)
-    private LocalDateTime fechaCreacion;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getPublicacionId() {
-        return publicacionId;
-    }
-
-    public void setPublicacionId(Long publicacionId) {
-        this.publicacionId = publicacionId;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public Integer getOrden() {
-        return orden;
-    }
-
-    public void setOrden(Integer orden) {
-        this.orden = orden;
-    }
-
-    public LocalDateTime getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
 }

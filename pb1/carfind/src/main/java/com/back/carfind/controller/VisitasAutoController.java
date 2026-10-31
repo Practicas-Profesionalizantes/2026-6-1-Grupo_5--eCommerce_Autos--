@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.VisitasAuto;
 import com.back.carfind.service.VisitasAutoService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/visitas-auto")
@@ -19,8 +18,8 @@ public class VisitasAutoController {
     }
 
     @PostMapping
-    public VisitasAuto crearVisitaAuto(@RequestBody VisitasAuto visitaAuto) {
-        return service.crearVisitaAuto(visitaAuto);
+    public VisitasAuto crearVisitaAuto(@RequestBody VisitasAuto visitasAuto) {
+        return service.crearVisitaAuto(visitasAuto);
     }
 
     @GetMapping("/{id}")
@@ -34,8 +33,8 @@ public class VisitasAutoController {
     }
 
     @PutMapping("/{id}")
-    public VisitasAuto actualizarVisitaAuto(@PathVariable Long id, @RequestBody VisitasAuto visitaAuto) {
-        return service.actualizarVisitaAuto(id, visitaAuto);
+    public VisitasAuto actualizarVisitaAuto(@PathVariable Long id, @RequestBody VisitasAuto visitasAuto) {
+        return service.actualizarVisitaAuto(id, visitasAuto);
     }
 
     @DeleteMapping("/{id}")

@@ -20,24 +20,38 @@ public class MetodosPagoService {
 
     public MetodosPago obtenerMetodoPago(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Metodo de pago no encontrado"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Método de pago no encontrado"
+                ));
     }
 
     public List<MetodosPago> listarMetodosPago() {
         return repository.findAll();
     }
 
-    public MetodosPago actualizarMetodoPago(Long id, MetodosPago datos) {
+    public MetodosPago actualizarMetodoPago(
+            Long id,
+            MetodosPago datos) {
+
         MetodosPago metodoPago = obtenerMetodoPago(id);
-        metodoPago.setUsuarioId(datos.getUsuarioId());
-        metodoPago.setDatosTokenizados(datos.getDatosTokenizados());
-        metodoPago.setActivo(datos.getActivo());
-        metodoPago.setTipoPagoId(datos.getTipoPagoId());
+
+        metodoPago.setId_usuario(datos.getId_usuario());
+        metodoPago.setDatos_tokenizados(
+                datos.getDatos_tokenizados()
+        );
+        metodoPago.setActivo_metodo(
+                datos.getActivo_metodo()
+        );
+        metodoPago.setId_tipo_pago(
+                datos.getId_tipo_pago()
+        );
+
         return repository.save(metodoPago);
     }
 
     public void eliminarMetodoPago(Long id) {
         MetodosPago metodoPago = obtenerMetodoPago(id);
+
         repository.delete(metodoPago);
     }
 }

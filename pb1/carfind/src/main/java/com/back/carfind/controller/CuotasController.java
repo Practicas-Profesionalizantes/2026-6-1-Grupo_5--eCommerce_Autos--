@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.Cuotas;
 import com.back.carfind.service.CuotasService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/cuotas")
@@ -20,12 +19,12 @@ public class CuotasController {
 
     @PostMapping
     public Cuotas crearCuota(@RequestBody Cuotas cuota) {
-        return service.crearCuota(cuota);
+        return service.crearCuotas(cuota);
     }
 
     @GetMapping("/{id}")
     public Cuotas obtenerCuota(@PathVariable Long id) {
-        return service.obtenerCuota(id);
+        return service.obtenerCuotas(id);
     }
 
     @GetMapping
@@ -35,11 +34,11 @@ public class CuotasController {
 
     @PutMapping("/{id}")
     public Cuotas actualizarCuota(@PathVariable Long id, @RequestBody Cuotas cuota) {
-        return service.actualizarCuota(id, cuota);
+        return service.actualizarCuotas(id, cuota);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarCuota(@PathVariable Long id) {
-        service.eliminarCuota(id);
+        service.eliminarcuotas(id);
     }
 }

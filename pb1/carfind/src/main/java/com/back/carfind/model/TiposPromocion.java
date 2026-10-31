@@ -1,72 +1,66 @@
 package com.back.carfind.model;
-
-import java.math.BigDecimal;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "tipos_promocion")
 public class TiposPromocion {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_tipos_promocion;
 
-    @Column(name = "nombre", length = 50)
-    private String nombre;
+@Column
+private String nombre;
 
-    @Column(name = "prioridad")
-    private Integer prioridad;
+@Column 
+private Integer prioridad;
 
-    @Column(name = "duracion_dias")
-    private Integer duracionDias;
+@Column
+private Integer duracion_dias;
 
-    @Column(name = "precio")
-    private BigDecimal precio;
+@Column
+private Float precio;
 
-    public Long getId() {
-        return id;
-    }
+public Long getId_tipos_promocion() {
+	return id_tipos_promocion;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public void setId_tipos_promocion(Long id_tipos_promocion) {
+	this.id_tipos_promocion = id_tipos_promocion;
+}
 
-    public String getNombre() {
-        return nombre;
-    }
+public String getNombre() {
+	return nombre;
+}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+public void setNombre(String nombre) {
+	this.nombre = nombre;
+}
 
-    public Integer getPrioridad() {
-        return prioridad;
-    }
+public Integer getPrioridad() {
+	return prioridad;
+}
 
-    public void setPrioridad(Integer prioridad) {
-        this.prioridad = prioridad;
-    }
+public void setPrioridad(Integer prioridad) {
+	this.prioridad = prioridad;
+}
 
-    public Integer getDuracionDias() {
-        return duracionDias;
-    }
+public Integer getDuracion_dias() {
+	return duracion_dias;
+}
 
-    public void setDuracionDias(Integer duracionDias) {
-        this.duracionDias = duracionDias;
-    }
+public void setDuracion_dias(Integer duracion_dias) {
+	this.duracion_dias = duracion_dias;
+}
 
-    public BigDecimal getPrecio() {
-        return precio;
-    }
+public Float getPrecio() {
+	return precio;
+}
 
-    public void setPrecio(BigDecimal precio) {
-        this.precio = precio;
-    }
+public void setPrecio(Float precio) {
+	this.precio = precio;
+}
+
 }

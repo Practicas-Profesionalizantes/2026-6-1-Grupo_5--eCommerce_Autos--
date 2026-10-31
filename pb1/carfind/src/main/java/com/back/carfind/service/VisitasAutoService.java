@@ -20,24 +20,36 @@ public class VisitasAutoService {
 
     public VisitasAuto obtenerVisitaAuto(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Visita no encontrada"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Visita de auto no encontrada"
+                ));
     }
 
     public List<VisitasAuto> listarVisitasAuto() {
         return repository.findAll();
     }
 
-    public VisitasAuto actualizarVisitaAuto(Long id, VisitasAuto datos) {
+    public VisitasAuto actualizarVisitaAuto(
+            Long id,
+            VisitasAuto datos) {
+
         VisitasAuto visitaAuto = obtenerVisitaAuto(id);
-        visitaAuto.setAutoId(datos.getAutoId());
-        visitaAuto.setCompradorId(datos.getCompradorId());
+
+        visitaAuto.setId_auto(datos.getId_auto());
+        visitaAuto.setId_comprador(
+                datos.getId_comprador()
+        );
         visitaAuto.setFecha(datos.getFecha());
-        visitaAuto.setResultado(datos.getResultado());
+        visitaAuto.setResultado(
+                datos.getResultado()
+        );
+
         return repository.save(visitaAuto);
     }
 
     public void eliminarVisitaAuto(Long id) {
         VisitasAuto visitaAuto = obtenerVisitaAuto(id);
+
         repository.delete(visitaAuto);
     }
 }

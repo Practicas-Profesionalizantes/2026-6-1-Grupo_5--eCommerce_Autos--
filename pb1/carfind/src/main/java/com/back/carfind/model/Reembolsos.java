@@ -1,73 +1,70 @@
 package com.back.carfind.model;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "reembolsos")
-public class Reembolsos {
+public class Reembolsos{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_reembolsos;
 
-    @Column(name = "transaccion_id")
-    private Long transaccionId;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_pago;
 
-    @Column(name = "monto")
-    private BigDecimal monto;
+@Column
+private Float monto;
 
-    @Column(name = "motivo", columnDefinition = "TEXT")
-    private String motivo;
+@Column 
+private String motivo;
 
-    @Column(name = "fecha", nullable = false)
-    private LocalDateTime fecha;
+@Column
+private LocalDate fecha;
 
-    public Long getId() {
-        return id;
-    }
+public Long getId_reembolsos() {
+	return id_reembolsos;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public void setId_reembolsos(Long id_reembolsos) {
+	this.id_reembolsos = id_reembolsos;
+}
 
-    public Long getTransaccionId() {
-        return transaccionId;
-    }
+public Long getId_pago() {
+	return id_pago;
+}
 
-    public void setTransaccionId(Long transaccionId) {
-        this.transaccionId = transaccionId;
-    }
+public void setId_pago(Long id_pago) {
+	this.id_pago = id_pago;
+}
 
-    public BigDecimal getMonto() {
-        return monto;
-    }
+public Float getMonto() {
+	return monto;
+}
 
-    public void setMonto(BigDecimal monto) {
-        this.monto = monto;
-    }
+public void setMonto(Float monto) {
+	this.monto = monto;
+}
 
-    public String getMotivo() {
-        return motivo;
-    }
+public String getMotivo() {
+	return motivo;
+}
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
-    }
+public void setMotivo(String motivo) {
+	this.motivo = motivo;
+}
 
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
+public LocalDate getFecha() {
+	return fecha;
+}
 
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
-    }
+public void setFecha(LocalDate fecha) {
+	this.fecha = fecha;
+}
+
+
 }

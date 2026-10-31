@@ -20,23 +20,35 @@ public class PlanesCuotasService {
 
     public PlanesCuotas obtenerPlanCuotas(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Plan de cuotas no encontrado"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Plan de cuotas no encontrado"
+                ));
     }
 
     public List<PlanesCuotas> listarPlanesCuotas() {
         return repository.findAll();
     }
 
-    public PlanesCuotas actualizarPlanCuotas(Long id, PlanesCuotas datos) {
+    public PlanesCuotas actualizarPlanCuotas(
+            Long id,
+            PlanesCuotas datos) {
+
         PlanesCuotas planCuotas = obtenerPlanCuotas(id);
-        planCuotas.setCantidadCuotas(datos.getCantidadCuotas());
+
+        planCuotas.setCantidad_cuotas(
+                datos.getCantidad_cuotas()
+        );
         planCuotas.setInteres(datos.getInteres());
-        planCuotas.setDescripcion(datos.getDescripcion());
+        planCuotas.setDescripcion(
+                datos.getDescripcion()
+        );
+
         return repository.save(planCuotas);
     }
 
     public void eliminarPlanCuotas(Long id) {
         PlanesCuotas planCuotas = obtenerPlanCuotas(id);
+
         repository.delete(planCuotas);
     }
 }

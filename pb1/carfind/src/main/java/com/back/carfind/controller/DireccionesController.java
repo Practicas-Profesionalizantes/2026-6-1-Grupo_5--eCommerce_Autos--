@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.Direcciones;
 import com.back.carfind.service.DireccionesService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/direcciones")
@@ -20,12 +19,12 @@ public class DireccionesController {
 
     @PostMapping
     public Direcciones crearDireccion(@RequestBody Direcciones direccion) {
-        return service.crearDireccion(direccion);
+        return service.crearDirecciones(direccion);
     }
 
     @GetMapping("/{id}")
     public Direcciones obtenerDireccion(@PathVariable Long id) {
-        return service.obtenerDireccion(id);
+        return service.obtenerDirecciones(id);
     }
 
     @GetMapping
@@ -35,11 +34,11 @@ public class DireccionesController {
 
     @PutMapping("/{id}")
     public Direcciones actualizarDireccion(@PathVariable Long id, @RequestBody Direcciones direccion) {
-        return service.actualizarDireccion(id, direccion);
+        return service.actualizarDirecciones(id, direccion);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarDireccion(@PathVariable Long id) {
-        service.eliminarDireccion(id);
+        service.eliminarDirecciones(id);
     }
 }

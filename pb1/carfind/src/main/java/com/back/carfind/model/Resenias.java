@@ -1,84 +1,66 @@
 package com.back.carfind.model;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "resenias")
 public class Resenias {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_resenia;
+@Column
+private Long id_comprador;
+@Column
+private Long id_vendedor;
+@Column
+private Float puntuacion;
+@Column
+private String comentario;
+@Column
+private LocalDate fecha_resenia;
 
-    @Column(name = "comprador_id", nullable = false)
-    private Long compradorId;
+public Long getId_resenia() {
+	return id_resenia;
+}
+public void setId_resenia(Long id_resenia) {
+	this.id_resenia = id_resenia;
+}
+public Long getId_comprador() {
+	return id_comprador;
+}
+public void setId_comprador(Long id_comprador) {
+	this.id_comprador = id_comprador;
+}
+public Long getId_vendedor() {
+	return id_vendedor;
+}
+public void setId_vendedor(Long id_vendedor) {
+	this.id_vendedor = id_vendedor;
+}
+public Float getPuntuacion() {
+	return puntuacion;
+}
+public void setPuntuacion(Float puntuacion) {
+	this.puntuacion = puntuacion;
+}
+public String getComentario() {
+	return comentario;
+}
+public void setComentario(String comentario) {
+	this.comentario = comentario;
+}
+public LocalDate getFecha_resenia() {
+	return fecha_resenia;
+}
+public void setFecha_resenia(LocalDate fecha_resenia) {
+	this.fecha_resenia = fecha_resenia;
+}
 
-    @Column(name = "vendedor_id", nullable = false)
-    private Long vendedorId;
 
-    @Column(name = "puntuacion")
-    private BigDecimal puntuacion;
 
-    @Column(name = "comentario", columnDefinition = "TEXT")
-    private String comentario;
 
-    @Column(name = "fecha", nullable = false)
-    private LocalDateTime fecha;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getCompradorId() {
-        return compradorId;
-    }
-
-    public void setCompradorId(Long compradorId) {
-        this.compradorId = compradorId;
-    }
-
-    public Long getVendedorId() {
-        return vendedorId;
-    }
-
-    public void setVendedorId(Long vendedorId) {
-        this.vendedorId = vendedorId;
-    }
-
-    public BigDecimal getPuntuacion() {
-        return puntuacion;
-    }
-
-    public void setPuntuacion(BigDecimal puntuacion) {
-        this.puntuacion = puntuacion;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
-    }
 }

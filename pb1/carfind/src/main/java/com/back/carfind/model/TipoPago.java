@@ -1,37 +1,33 @@
 package com.back.carfind.model;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "tipos_pago")
 public class TipoPago {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_tipo_pago;
+@Column
+private String nombre_tipo_pago;
 
-    @Column(name = "nombre", nullable = false, length = 50)
-    private String nombre;
 
-    public Long getId() {
-        return id;
-    }
+public Long getId_tipo_pago() {
+	return id_tipo_pago;
+}
+public void setId_tipo_pago(Long id_tipo_pago) {
+	this.id_tipo_pago = id_tipo_pago;
+}
+public String getNombre_tipo_pago() {
+	return nombre_tipo_pago;
+}
+public void setNombre_tipo_pago(String nombre_tipo_pago) {
+	this.nombre_tipo_pago = nombre_tipo_pago;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getNombre() {
-        return nombre;
-    }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+
 }

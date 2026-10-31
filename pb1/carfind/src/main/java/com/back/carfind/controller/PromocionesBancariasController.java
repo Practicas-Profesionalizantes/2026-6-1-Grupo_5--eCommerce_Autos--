@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.PromocionesBancarias;
 import com.back.carfind.service.PromocionesBancariasService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/promociones-bancarias")
@@ -20,26 +19,26 @@ public class PromocionesBancariasController {
 
     @PostMapping
     public PromocionesBancarias crearPromocionBancaria(@RequestBody PromocionesBancarias promocionBancaria) {
-        return service.crearPromocionBancaria(promocionBancaria);
+        return service.crearPromocion(promocionBancaria);
     }
 
     @GetMapping("/{id}")
     public PromocionesBancarias obtenerPromocionBancaria(@PathVariable Long id) {
-        return service.obtenerPromocionBancaria(id);
+        return service.obtenerPromocion(id);
     }
 
     @GetMapping
     public List<PromocionesBancarias> listarPromocionesBancarias() {
-        return service.listarPromocionesBancarias();
+        return service.listarPromociones();
     }
 
     @PutMapping("/{id}")
     public PromocionesBancarias actualizarPromocionBancaria(@PathVariable Long id, @RequestBody PromocionesBancarias promocionBancaria) {
-        return service.actualizarPromocionBancaria(id, promocionBancaria);
+        return service.actualizarPromocion(id, promocionBancaria);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarPromocionBancaria(@PathVariable Long id) {
-        service.eliminarPromocionBancaria(id);
+        service.eliminarPromocion(id);
     }
 }

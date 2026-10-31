@@ -1,72 +1,57 @@
 package com.back.carfind.model;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "moderacion_multimedia")
 public class ModeracionMultimedia {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_moderacion_multimedia;
 
-    @Column(name = "multimedia_id")
-    private Long multimediaId;
+@Column
+private String estado;
 
-    @Column(name = "estado")
-    private String estado;
+@Column
+private String motivo;
 
-    @Column(name = "motivo", columnDefinition = "TEXT")
-    private String motivo;
+@Column
+private LocalDate fecha;
 
-    @Column(name = "fecha", nullable = false)
-    private LocalDateTime fecha;
+public Long getId_moderacion_multimedia() {
+	return id_moderacion_multimedia;
+}
 
-    public Long getId() {
-        return id;
-    }
+public void setId_moderacion_multimedia(Long id_moderacion_multimedia) {
+	this.id_moderacion_multimedia = id_moderacion_multimedia;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public String getEstado() {
+	return estado;
+}
 
-    public Long getMultimediaId() {
-        return multimediaId;
-    }
+public void setEstado(String estado) {
+	this.estado = estado;
+}
 
-    public void setMultimediaId(Long multimediaId) {
-        this.multimediaId = multimediaId;
-    }
+public String getMotivo() {
+	return motivo;
+}
 
-    public String getEstado() {
-        return estado;
-    }
+public void setMotivo(String motivo) {
+	this.motivo = motivo;
+}
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+public LocalDate getFecha() {
+	return fecha;
+}
 
-    public String getMotivo() {
-        return motivo;
-    }
+public void setFecha(LocalDate fecha) {
+	this.fecha = fecha;
+}
 
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
-    }
-
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
-    }
 }

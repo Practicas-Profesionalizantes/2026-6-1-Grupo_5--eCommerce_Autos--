@@ -1,36 +1,46 @@
 package com.back.carfind.model;
-
-import java.math.BigDecimal;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "billeteras")
-public class Billeteras {
+public class Billeteras{
 
-    @Id
-    @Column(name = "usuario_id", nullable = false)
-    private Long usuarioId;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_billeteras;
 
-    @Column(name = "saldo")
-    private BigDecimal saldo;
 
-    public Long getUsuarioId() {
-        return usuarioId;
-    }
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id_usuario;
 
-    public void setUsuarioId(Long usuarioId) {
-        this.usuarioId = usuarioId;
-    }
+@Column
+private Float saldo;
 
-    public BigDecimal getSaldo() {
-        return saldo;
-    }
+public Long getId_billeteras() {
+	return id_billeteras;
+}
 
-    public void setSaldo(BigDecimal saldo) {
-        this.saldo = saldo;
-    }
+public void setId_billeteras(Long id_billeteras) {
+	this.id_billeteras = id_billeteras;
+}
+
+public Long getId_usuario() {
+	return id_usuario;
+}
+
+public void setId_usuario(Long id_usuario) {
+	this.id_usuario = id_usuario;
+}
+
+public Float getSaldo() {
+	return saldo;
+}
+
+public void setSaldo(Float saldo) {
+	this.saldo = saldo;
+}
+
 }

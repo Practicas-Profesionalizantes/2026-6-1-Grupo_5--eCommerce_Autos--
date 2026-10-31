@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.ActividadSospechosa;
 import com.back.carfind.service.ActividadSospechosaService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/actividades-sospechosas")
@@ -29,17 +28,17 @@ public class ActividadSospechosaController {
     }
 
     @GetMapping
-    public List<ActividadSospechosa> listarActividadesSospechosas() {
-        return service.listarActividadesSospechosas();
+    public List<ActividadSospechosa> listarActividadSospechosa() {
+        return service.listarActividadSospechosa();
     }
 
     @PutMapping("/{id}")
     public ActividadSospechosa actualizarActividadSospechosa(@PathVariable Long id, @RequestBody ActividadSospechosa actividadSospechosa) {
-        return service.actualizarActividadSospechosa(id, actividadSospechosa);
+        return service.actualizarRoles(id, actividadSospechosa);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarActividadSospechosa(@PathVariable Long id) {
-        service.eliminarActividadSospechosa(id);
+        service.eliminaractividadSospechosa(id);
     }
 }

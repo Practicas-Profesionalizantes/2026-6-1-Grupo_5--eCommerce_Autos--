@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.Chat;
 import com.back.carfind.service.ChatService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/chats")
@@ -30,7 +29,7 @@ public class ChatController {
 
     @GetMapping
     public List<Chat> listarChats() {
-        return service.listarChats();
+        return service.listarChat();
     }
 
     @PutMapping("/{id}")
@@ -40,6 +39,6 @@ public class ChatController {
 
     @DeleteMapping("/{id}")
     public void eliminarChat(@PathVariable Long id) {
-        service.eliminarChat(id);
+        service.eliminarchat(id);
     }
 }

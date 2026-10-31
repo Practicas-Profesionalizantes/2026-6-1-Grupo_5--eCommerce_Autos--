@@ -20,7 +20,9 @@ public class RolesService {
 
     public Roles obtenerRol(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Rol no encontrado"
+                ));
     }
 
     public List<Roles> listarRoles() {
@@ -29,8 +31,10 @@ public class RolesService {
 
     public Roles actualizarRol(Long id, Roles datos) {
         Roles rol = obtenerRol(id);
-        rol.setNombre(datos.getNombre());
-        rol.setActivo(datos.getActivo());
+
+        rol.setNombre_rol(datos.getNombre_rol());
+        rol.setActivo_rol(datos.getActivo_rol());
+
         return repository.save(rol);
     }
 

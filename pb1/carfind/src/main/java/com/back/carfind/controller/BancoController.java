@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.Banco;
 import com.back.carfind.service.BancoService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/bancos")
@@ -30,7 +29,7 @@ public class BancoController {
 
     @GetMapping
     public List<Banco> listarBancos() {
-        return service.listarBancos();
+        return service.listarBanco();
     }
 
     @PutMapping("/{id}")
@@ -40,6 +39,6 @@ public class BancoController {
 
     @DeleteMapping("/{id}")
     public void eliminarBanco(@PathVariable Long id) {
-        service.eliminarBanco(id);
+        service.eliminarbanco(id);
     }
 }

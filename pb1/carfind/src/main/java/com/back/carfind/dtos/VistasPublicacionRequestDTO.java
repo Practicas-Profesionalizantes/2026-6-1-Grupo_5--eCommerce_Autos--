@@ -14,7 +14,7 @@ public class VistasPublicacionRequestDTO {
     }
 
     public void setId_publicacion(Long id_publicacion) {
-        id_publicacion = id_publicacion;
+        this.id_publicacion = id_publicacion;
     }
 
     public Long getId_usuario() {

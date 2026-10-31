@@ -14,28 +14,39 @@ public class VariantesOpcionesService {
     @Autowired
     private VariantesOpcionesRepository repository;
 
-    public VariantesOpciones crearVarianteOpcion(VariantesOpciones varianteOpcion) {
+    public VariantesOpciones crearVarianteOpcion(
+            VariantesOpciones varianteOpcion) {
+
         return repository.save(varianteOpcion);
     }
 
     public VariantesOpciones obtenerVarianteOpcion(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Opcion de variante no encontrada"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Variante u opción no encontrada"
+                ));
     }
 
     public List<VariantesOpciones> listarVariantesOpciones() {
         return repository.findAll();
     }
 
-    public VariantesOpciones actualizarVarianteOpcion(Long id, VariantesOpciones datos) {
-        VariantesOpciones varianteOpcion = obtenerVarianteOpcion(id);
-        varianteOpcion.setVarianteId(datos.getVarianteId());
+    public VariantesOpciones actualizarVarianteOpcion(
+            Long id,
+            VariantesOpciones datos) {
+
+        VariantesOpciones varianteOpcion =
+                obtenerVarianteOpcion(id);
+
         varianteOpcion.setValor(datos.getValor());
+
         return repository.save(varianteOpcion);
     }
 
     public void eliminarVarianteOpcion(Long id) {
-        VariantesOpciones varianteOpcion = obtenerVarianteOpcion(id);
+        VariantesOpciones varianteOpcion =
+                obtenerVarianteOpcion(id);
+
         repository.delete(varianteOpcion);
     }
 }

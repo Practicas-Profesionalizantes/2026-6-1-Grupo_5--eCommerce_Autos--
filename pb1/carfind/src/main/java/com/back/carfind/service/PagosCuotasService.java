@@ -20,29 +20,49 @@ public class PagosCuotasService {
 
     public PagosCuotas obtenerPagoCuota(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Pago en cuotas no encontrado"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Pago de cuota no encontrado"
+                ));
     }
 
     public List<PagosCuotas> listarPagosCuotas() {
         return repository.findAll();
     }
 
-    public PagosCuotas actualizarPagoCuota(Long id, PagosCuotas datos) {
+    public PagosCuotas actualizarPagoCuota(
+            Long id,
+            PagosCuotas datos) {
+
         PagosCuotas pagoCuota = obtenerPagoCuota(id);
-        pagoCuota.setTransaccionId(datos.getTransaccionId());
-        pagoCuota.setPlanId(datos.getPlanId());
-        pagoCuota.setCantidadCuotas(datos.getCantidadCuotas());
-        pagoCuota.setInteresAplicado(datos.getInteresAplicado());
-        pagoCuota.setMontoOriginal(datos.getMontoOriginal());
-        pagoCuota.setMontoTotal(datos.getMontoTotal());
-        pagoCuota.setMontoCuota(datos.getMontoCuota());
+
+        pagoCuota.setId_pago(datos.getId_pago());
+        pagoCuota.setId_plan(datos.getId_plan());
+        pagoCuota.setCantidad_cuotas(
+                datos.getCantidad_cuotas()
+        );
+        pagoCuota.setInteres_aplicado(
+                datos.getInteres_aplicado()
+        );
+        pagoCuota.setMonto_original(
+                datos.getMonto_original()
+        );
+        pagoCuota.setMonto_total(
+                datos.getMonto_total()
+        );
+        pagoCuota.setMonto_cuota(
+                datos.getMonto_cuota()
+        );
         pagoCuota.setMoneda(datos.getMoneda());
-        pagoCuota.setFechaInicio(datos.getFechaInicio());
+        pagoCuota.setFecha_inicio(
+                datos.getFecha_inicio()
+        );
+
         return repository.save(pagoCuota);
     }
 
     public void eliminarPagoCuota(Long id) {
         PagosCuotas pagoCuota = obtenerPagoCuota(id);
+
         repository.delete(pagoCuota);
     }
 }

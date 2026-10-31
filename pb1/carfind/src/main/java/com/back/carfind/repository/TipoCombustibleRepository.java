@@ -1,14 +1,9 @@
 package com.back.carfind.repository;
-
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.back.carfind.model.TipoCombustible;
-
+import com.back.carfind.model.Tipo_combustible;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
-public interface TipoCombustibleRepository extends JpaRepository<TipoCombustible, Long> {
-
-    List<TipoCombustible> findByNombreContaining(String nombre);
+public interface TipoCombustibleRepository extends JpaRepository<Tipo_combustible, Long> {
+List<Tipo_combustible> findByNombreContaining(String nombre);
 }

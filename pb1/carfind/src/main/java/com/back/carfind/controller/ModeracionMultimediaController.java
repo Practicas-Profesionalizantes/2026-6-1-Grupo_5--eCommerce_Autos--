@@ -1,11 +1,10 @@
 package com.back.carfind.controller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.*;
-
 import com.back.carfind.model.ModeracionMultimedia;
 import com.back.carfind.service.ModeracionMultimediaService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/moderacion-multimedia")
@@ -20,26 +19,26 @@ public class ModeracionMultimediaController {
 
     @PostMapping
     public ModeracionMultimedia crearModeracionMultimedia(@RequestBody ModeracionMultimedia moderacionMultimedia) {
-        return service.crearModeracionMultimedia(moderacionMultimedia);
+        return service.crearModeracion(moderacionMultimedia);
     }
 
     @GetMapping("/{id}")
     public ModeracionMultimedia obtenerModeracionMultimedia(@PathVariable Long id) {
-        return service.obtenerModeracionMultimedia(id);
+        return service.obtenerModeracion(id);
     }
 
     @GetMapping
-    public List<ModeracionMultimedia> listarModeracionesMultimedia() {
-        return service.listarModeracionesMultimedia();
+    public List<ModeracionMultimedia> listarModeracionMultimedia() {
+        return service.listarModeraciones();
     }
 
     @PutMapping("/{id}")
     public ModeracionMultimedia actualizarModeracionMultimedia(@PathVariable Long id, @RequestBody ModeracionMultimedia moderacionMultimedia) {
-        return service.actualizarModeracionMultimedia(id, moderacionMultimedia);
+        return service.actualizarModeracion(id, moderacionMultimedia);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarModeracionMultimedia(@PathVariable Long id) {
-        service.eliminarModeracionMultimedia(id);
+        service.eliminarModeracion(id);
     }
 }

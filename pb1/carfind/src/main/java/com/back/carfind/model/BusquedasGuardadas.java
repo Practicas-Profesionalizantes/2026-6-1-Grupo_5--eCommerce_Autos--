@@ -1,61 +1,46 @@
 package com.back.carfind.model;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "busquedas_guardadas")
 public class BusquedasGuardadas {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long usuario_id;
 
-    @Column(name = "usuario_id")
-    private Long usuarioId;
+@Column 
+private String query;
 
-    @Column(name = "query", columnDefinition = "TEXT")
-    private String query;
+@Column
+private LocalDate fecha;
 
-    @Column(name = "fecha", nullable = false)
-    private LocalDateTime fecha;
+public Long getUsuario_id() {
+	return usuario_id;
+}
 
-    public Long getId() {
-        return id;
-    }
+public void setUsuario_id(Long usuario_id) {
+	this.usuario_id = usuario_id;
+}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+public String getQuery() {
+	return query;
+}
 
-    public Long getUsuarioId() {
-        return usuarioId;
-    }
+public void setQuery(String query) {
+	this.query = query;
+}
 
-    public void setUsuarioId(Long usuarioId) {
-        this.usuarioId = usuarioId;
-    }
+public LocalDate getFecha() {
+	return fecha;
+}
 
-    public String getQuery() {
-        return query;
-    }
+public void setFecha(LocalDate fecha) {
+	this.fecha = fecha;
+}
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
-    }
 }

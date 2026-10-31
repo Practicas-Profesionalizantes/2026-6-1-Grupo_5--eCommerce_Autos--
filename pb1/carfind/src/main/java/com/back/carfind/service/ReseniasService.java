@@ -20,25 +20,47 @@ public class ReseniasService {
 
     public Resenias obtenerResenia(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Resenia no encontrada"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Reseña no encontrada"
+                ));
     }
 
     public List<Resenias> listarResenias() {
         return repository.findAll();
     }
 
-    public Resenias actualizarResenia(Long id, Resenias datos) {
+    public Resenias actualizarResenia(
+            Long id,
+            Resenias datos) {
+
         Resenias resenia = obtenerResenia(id);
-        resenia.setCompradorId(datos.getCompradorId());
-        resenia.setVendedorId(datos.getVendedorId());
-        resenia.setPuntuacion(datos.getPuntuacion());
-        resenia.setComentario(datos.getComentario());
-        resenia.setFecha(datos.getFecha());
+
+        resenia.setId_comprador(
+                datos.getId_comprador()
+        );
+
+        resenia.setId_vendedor(
+                datos.getId_vendedor()
+        );
+
+        resenia.setPuntuacion(
+                datos.getPuntuacion()
+        );
+
+        resenia.setComentario(
+                datos.getComentario()
+        );
+
+        resenia.setFecha_resenia(
+                datos.getFecha_resenia()
+        );
+
         return repository.save(resenia);
     }
 
     public void eliminarResenia(Long id) {
         Resenias resenia = obtenerResenia(id);
+
         repository.delete(resenia);
     }
 }

@@ -2,36 +2,32 @@ package com.back.carfind.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+
 
 @Entity
-@Table(name = "favoritos")
-@IdClass(FavoritosId.class)
 public class Favoritos {
+	
+@Id
+@GeneratedValue
+private Long id_usuario;
+@Column
+private Long id_publicacion;
 
-    @Id
-    @Column(name = "usuario_id", nullable = false)
-    private Long usuarioId;
+public Long getId_usuario() {
+	return id_usuario;
+}
+public void setId_usuario(Long id_usuario) {
+	this.id_usuario = id_usuario;
+}
+public Long getId_publicacion() {
+	return id_publicacion;
+}
+public void setId_publicacion(Long id_publicacion) {
+	this.id_publicacion = id_publicacion;
+}
 
-    @Id
-    @Column(name = "publicacion_id", nullable = false)
-    private Long publicacionId;
 
-    public Long getUsuarioId() {
-        return usuarioId;
-    }
 
-    public void setUsuarioId(Long usuarioId) {
-        this.usuarioId = usuarioId;
-    }
-
-    public Long getPublicacionId() {
-        return publicacionId;
-    }
-
-    public void setPublicacionId(Long publicacionId) {
-        this.publicacionId = publicacionId;
-    }
 }

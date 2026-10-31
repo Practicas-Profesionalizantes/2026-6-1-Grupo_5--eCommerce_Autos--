@@ -20,7 +20,9 @@ public class ModelosService {
 
     public Modelos obtenerModelo(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Modelo no encontrado"));
+                .orElseThrow(() -> new RuntimeException(
+                        "Modelo no encontrado"
+                ));
     }
 
     public List<Modelos> listarModelos() {
@@ -29,13 +31,16 @@ public class ModelosService {
 
     public Modelos actualizarModelo(Long id, Modelos datos) {
         Modelos modelo = obtenerModelo(id);
-        modelo.setMarcaId(datos.getMarcaId());
-        modelo.setNombre(datos.getNombre());
+
+        modelo.setNombre_modelo(datos.getNombre_modelo());
+        modelo.setMarca_id(datos.getMarca_id());
+
         return repository.save(modelo);
     }
 
     public void eliminarModelo(Long id) {
         Modelos modelo = obtenerModelo(id);
+
         repository.delete(modelo);
     }
 }
