@@ -1,0 +1,5 @@
+/.metadata/
+# Fotos subidas desde la página (las crea el backend al correr)
+/carfind/uploads/
+# Salida de compilación de Maven (se regenera al compilar)
+/carfind/target/

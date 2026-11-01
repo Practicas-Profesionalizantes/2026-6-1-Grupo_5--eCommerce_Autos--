@@ -1,0 +1,39 @@
+/* =========================================
+   PREFERENCIAS DE INTERFAZ (Configuración)
+   Los atributos data-* los pone utils/preferenciasUI.js sobre <html>.
+   El tamaño de fuente se aplica como font-size del <html> (la app usa rem).
+   ========================================= */
+
+/* Fuente elegida por el usuario. Los controles de formulario no heredan la fuente por defecto. */
+html[data-fuente] body,
+html[data-fuente] :is(button, input, select, textarea) {
+  font-family: var(--fuente-app);
+}
+
+/* Movimiento: "desactivado", o "sistema" cuando el dispositivo pide reducir movimiento. */
+html[data-animaciones='desactivado'] *,
+html[data-animaciones='desactivado'] *::before,
+html[data-animaciones='desactivado'] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-animaciones='sistema'] *,
+  html[data-animaciones='sistema'] *::before,
+  html[data-animaciones='sistema'] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subrayado de enlaces (los enlaces con forma de botón no se subrayan). */
+html[data-subrayado='ocultar'] a {
+  text-decoration: none !important;
+}
+
+html[data-subrayado='mostrar'] a:not(.btn-perfil):not(.wishlist-card-image):not(.config-menu-item):not(.logo-link):not(.navButton) {
+  text-decoration: underline;
+}

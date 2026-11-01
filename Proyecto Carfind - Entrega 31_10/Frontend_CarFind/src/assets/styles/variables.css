@@ -1,0 +1,54 @@
+/* Configuración por defecto: Tema Claro (Lila) */
+:root {
+  --bg-color: #f3f0ff !important;      
+  --card-bg: #ffffff !important;       
+  --card-text-color: #fff !important;
+  --primary-color: #6d44b4 !important;  
+  --text-color: #2d2d2d !important;     
+  --accent-color: #b39ddb !important;   
+  --border-color: #d3c6ee !important;
+  --button-bg-color: #9c6cee !important;
+  --login-bg-color: #b78effb7 !important;
+  --login-text-color: #180b2c !important;
+  --login-border-color:#7630f0fb !important;
+
+  /* Diseño (tema-carfind.css): bordes suaves, superficies y foco */
+  --linea: #e3dbf3;
+  --superficie: #f8f6fe;
+  --superficie-hover: #efe9fc;
+  --texto-suave: #6a6480;
+  --primario-hover: #5b3799;
+  --anillo-foco: rgba(109, 68, 180, 0.35);
+  --sombra-sm: 0 1px 2px rgba(45, 27, 84, 0.06), 0 1px 3px rgba(45, 27, 84, 0.08);
+  --sombra-md: 0 10px 24px rgba(45, 27, 84, 0.14);
+}
+
+/* Configuración: Tema Oscuro (Negro/Violeta) */
+[data-theme='dark'] {
+  --bg-color: #272525 !important;      
+  --card-bg: #35313f !important;      
+  --card-text-color: #fff !important; 
+  --primary-color: #7c4dff !important;  
+  --text-color: #ede7f6 !important;     
+  --accent-color: #311b92 !important;   
+  --border-color: #4f4562 !important;
+  --button-bg-color:  #a384dd !important;
+  --login-bg-color: #a384dd !important;
+  --login-text-color: #302c36 !important;
+  --login-border-color:#7630f0fb !important;
+
+  --linea: #4a4358;
+  --superficie: #2c2934;
+  --superficie-hover: #3f3a4c;
+  --texto-suave: #b9b0cc;
+  --primario-hover: #6a3cf0;
+  --anillo-foco: rgba(163, 132, 221, 0.45);
+  --sombra-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.25);
+  --sombra-md: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
