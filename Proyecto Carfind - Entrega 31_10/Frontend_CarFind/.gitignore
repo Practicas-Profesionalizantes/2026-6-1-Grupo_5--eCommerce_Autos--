@@ -1,0 +1,4 @@
+# Dependencias: se instalan con "npm install" (Vercel también las instala solo)
+node_modules
+dist
+.vercel

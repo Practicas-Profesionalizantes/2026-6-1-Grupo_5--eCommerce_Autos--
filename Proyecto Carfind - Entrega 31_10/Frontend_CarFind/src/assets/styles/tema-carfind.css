@@ -1,0 +1,650 @@
+/* =========================================
+   TEMA CARFIND
+   Estilo unificado de header, botones, filtros, tarjetas y formularios.
+   Se carga después de App.css (ver main.jsx), así que pisa sus reglas sin tocarlas.
+   Los colores salen de variables.css: funciona igual en tema claro y oscuro.
+   ========================================= */
+
+:focus-visible {
+  outline: 3px solid var(--anillo-foco);
+  outline-offset: 2px;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding: 12px 24px;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--linea);
+  box-shadow: var(--sombra-sm);
+}
+
+.logo {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-color);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.logo-icono {
+  height: 34px;
+  width: auto;
+}
+
+.header-busqueda {
+  position: relative;
+  flex: 1 1 280px;
+  max-width: 520px;
+  align-items: center;
+}
+
+.header-busqueda .search-bar {
+  height: 42px;
+  margin: 0;
+  padding: 0 16px 0 42px;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  background-color: var(--superficie);
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+.header-busqueda-icono {
+  position: absolute;
+  left: 15px;
+  color: var(--texto-suave);
+  pointer-events: none;
+}
+
+.actions {
+  gap: 2px;
+}
+
+.icon-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-color);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.icon-button:hover {
+  transform: none;
+  background-color: var(--superficie-hover);
+  color: var(--primary-color);
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-saludo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 4px;
+  font-weight: 600;
+}
+
+.header-avatar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* ---------- Botones ----------
+   Principal (relleno): .navButton, .btn-ask, .btn-publicar
+   Secundario (borde violeta): .navButton-secundario, .clear-filters-btn, .btn-wishlist
+   Fantasma (borde gris): .navButton-fantasma, .btn-support, .invitado-btn */
+
+.navButton,
+.clear-filters-btn,
+.btn-ask,
+.btn-ws,
+.btn-wishlist,
+.btn-support,
+.invitado-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: auto;
+  min-height: 40px;
+  margin: 0;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.navButton,
+.btn-ask {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.navButton:hover:not(:disabled),
+.btn-ask:hover:not(:disabled) {
+  border-color: var(--primario-hover);
+  background-color: var(--primario-hover);
+  color: #fff;
+  box-shadow: var(--sombra-sm);
+}
+
+.navButton-secundario,
+.clear-filters-btn,
+.btn-wishlist {
+  border-color: var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+[data-theme='dark'] .navButton-secundario,
+[data-theme='dark'] .clear-filters-btn,
+[data-theme='dark'] .btn-wishlist {
+  border-color: var(--button-bg-color);
+  color: var(--button-bg-color);
+}
+
+.navButton-secundario:hover:not(:disabled),
+.clear-filters-btn:hover:not(:disabled),
+.btn-wishlist:hover:not(:disabled) {
+  background-color: var(--superficie-hover);
+  color: var(--primary-color);
+  box-shadow: none;
+}
+
+[data-theme='dark'] .navButton-secundario:hover:not(:disabled),
+[data-theme='dark'] .clear-filters-btn:hover:not(:disabled),
+[data-theme='dark'] .btn-wishlist:hover:not(:disabled) {
+  color: var(--text-color);
+}
+
+.navButton-fantasma,
+.btn-support,
+.invitado-btn {
+  border-color: var(--linea);
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.navButton-fantasma:hover:not(:disabled),
+.btn-support:hover:not(:disabled),
+.invitado-btn:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  background-color: var(--superficie-hover);
+  color: var(--text-color);
+  box-shadow: none;
+}
+
+.btn-ws {
+  border-color: #128c4a;
+  background-color: #128c4a;
+  color: #fff;
+}
+
+.btn-ws:hover:not(:disabled) {
+  border-color: #0e7a40;
+  background-color: #0e7a40;
+}
+
+.btn-publicar {
+  min-height: 48px;
+  padding: 0 40px;
+  font-size: 1.05rem;
+}
+
+:is(.navButton, .clear-filters-btn, .btn-ask, .btn-ws, .btn-wishlist, .btn-support, .invitado-btn):disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.contact-actions {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Acción destructiva (Eliminar): borde rojo, y relleno en la confirmación */
+.navButton-peligro {
+  border-color: #c62828;
+  background-color: transparent;
+  color: #c62828;
+}
+
+.navButton-peligro:hover:not(:disabled) {
+  border-color: #c62828;
+  background-color: rgba(198, 40, 40, 0.08);
+  color: #c62828;
+  box-shadow: none;
+}
+
+[data-theme='dark'] .navButton-peligro,
+[data-theme='dark'] .navButton-peligro:hover:not(:disabled) {
+  border-color: #ef5350;
+  color: #ef9a9a;
+}
+
+.navButton-peligro-lleno,
+.navButton-peligro-lleno:hover:not(:disabled) {
+  border-color: #c62828;
+  background-color: #c62828;
+  color: #fff;
+}
+
+.navButton-peligro-lleno:hover:not(:disabled) {
+  border-color: #a51f1f;
+  background-color: #a51f1f;
+}
+
+/* ---------- Gestión de publicaciones propias (Mis publicaciones y detalle) ---------- */
+
+.acciones-publicacion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.acciones-publicacion .navButton {
+  min-height: 34px;
+  padding: 0 12px;
+  font-size: 0.875rem;
+}
+
+.acciones-publicacion-aviso {
+  margin: 0 0 16px;
+  color: var(--texto-suave);
+  line-height: 1.5;
+}
+
+.acciones-publicacion-modal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.perfil-card--pausada .perfil-card-image img {
+  filter: grayscale(0.7);
+  opacity: 0.7;
+}
+
+.perfil-badge--pausa {
+  border-color: #b26a00;
+  color: #b26a00;
+}
+
+[data-theme='dark'] .perfil-badge--pausa {
+  border-color: #ffb74d;
+  color: #ffb74d;
+}
+
+.publicacion-propia {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px dashed var(--primary-color);
+  border-radius: 12px;
+  background-color: var(--superficie);
+}
+
+.publicacion-propia-texto {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ---------- Barra de filtros del inicio ---------- */
+
+.filter-group {
+  align-items: flex-end !important;
+  gap: 12px 16px !important;
+  width: auto !important;
+  margin: 20px 24px 0;
+  padding: 16px 20px !important;
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  background-color: var(--card-bg);
+  box-shadow: var(--sombra-sm);
+}
+
+.filter-item {
+  flex: 1 1 150px;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 6px !important;
+}
+
+.filter-item label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  opacity: 1;
+}
+
+.filter-item select,
+.filter-select {
+  appearance: none;
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0 36px 0 12px;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  background-color: var(--superficie);
+  color: var(--text-color);
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.filter-item select:hover,
+.filter-select:hover {
+  border-color: var(--primary-color);
+}
+
+.filter-item select:focus,
+.filter-select:focus {
+  border-color: var(--primary-color);
+  background-color: var(--superficie);
+  box-shadow: 0 0 0 3px var(--anillo-foco);
+  outline: none;
+}
+
+.filter-group .clear-filters-btn {
+  flex: 0 0 auto;
+}
+
+/* Resto de los desplegables de la app (Configuración, Admin, Crear publicación...).
+   :where() no suma especificidad: si una pantalla define su propio ancho, color o margen, se respeta.
+   La flecha va con !important porque varias pantallas pisan el fondo y la borraban. */
+:where(select) {
+  appearance: none;
+  min-height: 38px;
+  padding: 0 36px 0 12px;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  background-color: var(--superficie);
+  color: var(--text-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+select {
+  padding-right: 36px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238a84a0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+}
+
+/* ---------- Tarjetas de publicaciones ---------- */
+
+.content-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  align-content: start;
+  gap: 20px;
+  padding: 24px;
+}
+
+.product-card {
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  background-color: var(--card-bg);
+  box-shadow: var(--sombra-sm);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  background-color: var(--card-bg);
+  box-shadow: var(--sombra-md);
+  color: inherit;
+}
+
+.card-image-placeholder {
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+
+.card-info {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 14px 16px 16px;
+}
+
+.card-titulo {
+  display: -webkit-box;
+  min-height: 2.6em;
+  overflow: hidden;
+  font-weight: 600;
+  line-height: 1.3;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-precio {
+  color: var(--primary-color);
+  font-size: 1.15rem;
+}
+
+[data-theme='dark'] .card-precio {
+  color: var(--button-bg-color);
+}
+
+.card-seller {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+  opacity: 1;
+}
+
+/* ---------- Detalle y Crear publicación ---------- */
+
+.product-title,
+.location-tag,
+.price-tag,
+.specs-card,
+.main-image-box,
+.thumb-btn {
+  border-color: var(--linea);
+  border-radius: 12px;
+  background-color: var(--card-bg);
+}
+
+.thumb-btn.active {
+  border: 2px solid var(--primary-color);
+}
+
+.product-title {
+  padding: 14px 16px;
+}
+
+.specs-card {
+  padding: 18px 20px;
+  box-shadow: var(--sombra-sm);
+}
+
+.price-location-box .price-tag {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  font-size: 1.15rem;
+}
+
+[data-theme='dark'] .price-location-box .price-tag {
+  border-color: var(--button-bg-color);
+  color: var(--button-bg-color);
+}
+
+/* El precio debajo de la galería ocupa solo lo que necesita (antes se estiraba y quedaba una caja vacía) */
+.gallery-container .price-tag {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+/* ---------- Campos de formulario ---------- */
+
+input.search-bar,
+textarea.search-bar {
+  padding: 10px 14px;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  background-color: var(--superficie);
+  color: var(--text-color);
+  font: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input.search-bar:focus,
+textarea.search-bar:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--anillo-foco);
+  outline: none;
+}
+
+/* ---------- Login y Registro ---------- */
+
+.side-panel {
+  gap: 20px;
+  border: none;
+  background-color: var(--superficie);
+}
+
+.side-panel img {
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: var(--sombra-md);
+}
+
+.form-panel {
+  justify-content: center;
+}
+
+.auth-form {
+  margin-left: 0;
+  gap: 12px;
+}
+
+.auth-form .search-bar {
+  height: 46px;
+  margin-left: 0;
+}
+
+.auth-form .navButton {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 4px;
+}
+
+.extra-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.invitado-btn {
+  margin-top: 16px;
+}
+
+/* ---------- Pantallas chicas ---------- */
+
+@media (max-width: 900px) {
+  .header {
+    padding: 10px 16px;
+  }
+
+  .header-busqueda {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+  }
+
+  .login {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .actions {
+    order: 4;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header-saludo-texto,
+  .header-texto-opcional {
+    display: none;
+  }
+
+  .filter-group {
+    margin: 16px 16px 0;
+  }
+
+  .content-grid {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-texto {
+    display: none;
+  }
+
+  .login .navButton {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.875rem;
+  }
+
+  .filter-item {
+    flex-basis: calc(50% - 8px);
+  }
+
+  .filter-group .clear-filters-btn {
+    flex-basis: 100%;
+  }
+}
